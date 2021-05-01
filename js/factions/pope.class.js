@@ -33,7 +33,7 @@ var Pope = (function(){
     f.addEvent(new Event({
         slug: "rezo1",
         defcon: 0,
-        delta_power:10,
+        delta_power:5,
         text: "El Papa ha organizado un rezo en la plaza de Roma. 2 millones de personas se han unido.",   
         reactions: [ 
             new Reaction(r_apoyar_d,{text:"Rezar"}),
@@ -45,7 +45,7 @@ var Pope = (function(){
     f.addEvent(new Event({
         slug: "hospital1",
         defcon: 0,
-        delta_power:15,
+        delta_power:7,
         text: "El Papa visito un hospital de huerfanos repartiendo juguetes.",  
         reactions: [ 
             new Reaction(r_apoyar_d,{text:"Aportar dinero de ayuda"}),
@@ -56,7 +56,7 @@ var Pope = (function(){
     f.addEvent(new Event({
         slug: "religionobligatoria",
         defcon: 0,
-        min_defcon: 1,
+        min_defcon: 1,//Asciende el defcon!
         delta_power: 40,
         coste: 200,
         text: "Se discute una ley para hacer obligatoria la religion en la educacion publica de europa.",  

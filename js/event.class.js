@@ -2,11 +2,11 @@
 
 function Event(ev){
     if(!ev.delta_power)
-        ev.delta_power= 0;
+        ev.delta_power = 0;
     if(!ev.min_defcon)
         ev.min_defcon = 0;  
     if(!ev.defcon)
-        ev.defcon= 0; 
+        ev.defcon = 0; 
     if(!ev.coste){
         ev.coste = 1;
     }

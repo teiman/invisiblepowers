@@ -176,10 +176,7 @@ function Faccion(nombre, slug){
      * @returns 
      */
     this.processPendingEvents = function(){
-        if(!this.cola_eventos_esperando.length){
-            console.log("[Faccion][processPendingEvents] NO hay eventos");
-            return;
-        }
+
 
         var delta_power_final = 0;
         var delta_defcon = 0;
@@ -187,32 +184,38 @@ function Faccion(nombre, slug){
         var eventos_reaccion = this.eventos_reaccion;
 
         console.log(`[Faccion][processPendingEvents] Se van a procesar ${eventos_reaccion.length} eventos`);
+        if(this.cola_eventos_esperando.length){           
+            this.cola_eventos_esperando.forEach(function(e){            
+                if(eventos_reaccion[e.slug]){
+                    var r = eventos_reaccion[e.slug];
+                    
+                    console.log(`[Faction][processPendingEvents] slug:${e.slug},r.dir:${r.direction} `);
 
-        this.cola_eventos_esperando.forEach(function(e){            
-            if(eventos_reaccion[e.slug]){
-                var r = eventos_reaccion[e.slug];
-                
-                console.log(`[Faction][processPendingEvents] slug:${e.slug},r.dir:${r.direction} `);
-
-                if(r.direction == "block" || r.direction == "stop"){
-                    console.log("[processPendingEvents] se ha suprimido el evento")
-                    return;
+                    if(r.direction == "block" || r.direction == "stop"){
+                        console.log("[processPendingEvents] se ha suprimido el evento")
+                        return;
+                    }
+                    if(r.direction =="help"){
+                        console.log("[processPendingEvents] player favorecio el evento:"+ e.slug)
+                    }
                 }
-                if(r.direction =="help"){
-                    console.log("[processPendingEvents] player favorecio el evento:"+ e.slug)
+
+                delta_power_final += e.delta_power;
+                if(e.delta_defcon) delta_defcon += e.delta_defcon;
+
+                if(e.min_defcon){
+                    if(e.min_defcon>min_defcon){
+                        min_defcon = e.min_defcon;
+                    }
                 }
-            }
+            });
+        }else{
+            console.log("[Faccion][processPendingEvents] NO hay eventos");
+        }
 
-            delta_power_final += e.delta_power;
-            if(e.delta_defcon) delta_defcon += e.delta_defcon;
-
-            if(e.min_defcon){
-                if(e.min_defcon>min_defcon){
-                    min_defcon = e.min_defcon;
-                }
-            }
-        });
-
+        //Delta_defcon solo puede cambiar en 1, no pude pasar de 1 a 6 de golpe.
+        if(delta_defcon>1) delta_defcon = 1;
+        if(delta_defcon<-1) delta_defcon = -1;
 
         if(delta_defcon){
             console.log("[Faccion][processPendingEvents] AVISO!: cambia el DEFCON de la faccion:" + this.name);

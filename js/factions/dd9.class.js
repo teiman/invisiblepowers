@@ -5,6 +5,8 @@
  */
 var DD9 = (function(){
     var f = new Faccion("D.D.9","dd9");
+    f.acumpower = 100;
+    f.power = 24;
     
     function genReturnAgentEvent(a){
         var e = new Event({
@@ -16,6 +18,24 @@ var DD9 = (function(){
         return e;
     }
 
+    f.addEvent(new Event({
+        slug: "congreso1",
+        coste: 240, 
+        text: "El DD9 organiza un congreso de seguridad.",   
+    }));
+
+    f.addEvent(new Event({
+        slug: "congreso2",
+        coste: 210, 
+        text: "El DD9 realiza un entrenamiento en el mar del norte.",   
+    }));
+
+    f.addEvent(new Event({
+        slug: "informeG7",
+        coste: 250, 
+        text: "El DD9 presenta su informe al G7.",   
+    }));
+
     function bet(data){ f.bet(data); }
     function next(){ f.next(); }
 
@@ -25,6 +45,7 @@ var DD9 = (function(){
         slug: f.slug,
         name: f.name,
         genReturnAgentEvent: genReturnAgentEvent,
+        f:f,
     };
 
 })();
