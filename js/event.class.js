@@ -53,6 +53,11 @@ function Event(ev){
             var div = document.createElement("div");
             
             this.reactions.forEach(function(r){
+                if(!Game.canAfford(r.cost /* S D T */,ev.coste)){
+                    console.log(`[Event][genHTML] r.cost:${r.cost},ev.coste:${ev.coste}`);
+                    return;
+                }    
+
                 var btn = r.render();
                 $(div).append(btn);
             });        

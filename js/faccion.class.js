@@ -140,6 +140,7 @@ function Faccion(nombre, slug){
                 console.log(`[Faccion][buyRandomEvents] MUY CARO! e.coste:${e.coste},this.acumpower:${this.acumpower} `);
                 continue;
             }
+
             vistos[e.slug] = true;
 
             this.acumpower = this.acumpower - e.coste;
@@ -186,6 +187,8 @@ function Faccion(nombre, slug){
                 if(r.direction =="help"){
                     console.log("[processPendingEvents] player favorecio el evento:"+ e.slug)
                 }
+                
+                //Game.usarRecurso(e.coste,1);
             }
 
             delta_power_final += e.delta_power;

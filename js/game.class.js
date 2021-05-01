@@ -1,13 +1,9 @@
 /*
-
 Recursos
 
 Soldado: S
 Diplomatico: D
 Tecnico: T
-
-
-
 */
 
 
@@ -21,6 +17,11 @@ var Game = (function(){
 
     var factions = [];
     factions[Pope.slug] = Pope;
+
+    var turno = 1;
+
+    var colasRecuperacionRecursos = [];
+
 
     function getTeam(){
         return {
@@ -50,11 +51,14 @@ var Game = (function(){
 
     function next(){
         logme("next","...");
+        //Avanza el turno
+        turno++;
 
         Scene.clear();        
         Pope.next();
         Scene.redraw();
         update_ui();
+
     }
 
     function bet(nodo){
@@ -73,6 +77,9 @@ var Game = (function(){
                 faction_slug:faction_slug,
             });
 
+            //TODO: numero de turnos variable, de momento hardcodeamos a 1 turno
+            usarRecurso(cost,1);
+
             $(nodo).prop("disabled",true)
                 .prop("readonly",true)
                 .prop("disabled",true)
@@ -84,11 +91,56 @@ var Game = (function(){
         }
     }
 
+    function usarRecurso(recurso,turnos){
+        console.log(`[Game][usaRecursos] ...`);
+        console.log(`[Game][usaRecursos] recurso:${recurso},turnos:${turnos}`);
+        switch(recurso){
+            case "D":
+                diplomaticos--;
+                if(diplomaticos<0)
+                    diplomaticos = 0;
+                break;
+            case "T":
+                tecnicos--;
+                if(tecnicos<0)
+                    tecnicos = 0;
+                break;
+            case "S":
+                soldados--;
+                if(soldados<0)
+                    soldados = 0;
+                break;
+        }
+
+        update_ui();
+    }
+
+    function canAfford(recurso,qty){
+        switch(recurso){
+            case "D":
+                if(diplomaticos>=qty)
+                    return true;
+                break;
+            case "T":
+                if(tecnicos>=qty)
+                    return true;
+                break;
+            case "S":
+                if(soldados>=qty)
+                    return true;
+                break;
+        }
+
+        return false;
+    }
+
     $(function(){
         update_ui();
     });
 
     return {
+        canAfford:canAfford,
+        usarRecurso:usarRecurso,
         bet:bet,
         next:next,
         getTeam:getTeam
