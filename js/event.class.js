@@ -47,6 +47,16 @@ function Event(ev){
 
     this.genHTML = function(){
         var template_event = $("#ui-event").html();
+
+        //Templates para texto
+        var randomcountry = PAISES.rand();
+        var smallnum = (Math.random()*100%5).toFixed();
+        this.text_render =  Mustache.render(this.text, {
+            country: randomcountry,
+            smallnum: smallnum,
+        });
+
+        //Generate
         var html = Mustache.render(template_event, this);
 
         if(this.reactions.length){

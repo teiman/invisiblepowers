@@ -34,7 +34,7 @@ var Pope = (function(){
         slug: "rezo1",
         defcon: 0,
         delta_power:5,
-        text: "El Papa ha organizado un rezo en la plaza de Roma. 2 millones de personas se han unido.",   
+        text: "El Papa ha organizado un rezo en la plaza de Roma. {{smallnum}} millones de personas se han unido.",   
         reactions: [ 
             new Reaction(r_apoyar_d,{text:"Rezar"}),
             new Reaction(r_parar_d,{text:"Crear disturvios"}), 
@@ -59,10 +59,23 @@ var Pope = (function(){
         min_defcon: 1,//Asciende el defcon!
         delta_power: 40,
         coste: 200,
-        text: "Se discute una ley para hacer obligatoria la religion en la educacion publica de europa.",  
+        text: "Se discute una ley para hacer obligatoria la religion en la educacion publica en {{country}}.",  
         reactions: [ 
             new Reaction(r_apoyar_d,{}),
             new Reaction(r_parar_d,{text:"Encontrar irregularidades en la ley", cost:"D"}), 
+        ],    
+    }));
+
+    f.addEvent(new Event({
+        slug: "tv1",
+        defcon: 0,
+        min_defcon: 1,//Asciende el defcon!
+        delta_power: 100,
+        coste: 200,
+        text: "La iglesia catolica abre un nuevo canal de television en {{country}}.",  
+        reactions: [ 
+            new Reaction(r_apoyar_d,{}),
+            new Reaction(r_parar_d,{text:"Interferir la señal", cost:"T"}), 
         ],    
     }));
 
@@ -85,9 +98,77 @@ var Pope = (function(){
         defcon: 1,
         delta_power:20,
         coste: 600, 
-        text: "El presidente europeo visita al papa, durante su visita una paloma se posa en su brazo.", 
+        text: "El presidente de {{country}} visita al papa, durante su visita una paloma se posa en su brazo.", 
         reactions: [ 
             new Reaction(r_parar_d,{text:"Entrar trapos sucios del politico",cost:"D"}), 
+        ],    
+    }));
+
+    f.addEvent(new Event({
+        slug: "tv2",
+        defcon: 1,
+        delta_power:20,
+        coste: 600, 
+        text: "La television papal, la mas popular en {{country}}.", 
+        reactions: [ 
+            new Reaction(r_parar_d,{text:"Sabotear economia de la cadena",cost:"D"}), 
+            new Reaction(r_parar_d,{text:"Interferir señal",cost:"T"}), 
+        ],    
+    }));
+
+    f.addEvent(new Event({
+        slug: "comiteetico",
+        defcon: 1,
+        min_defcon: 2,//asciende 
+        delta_power:20,
+        coste: 700, 
+        text: "El Papa elegido para liderar un comite etico en {{country}}.", 
+        reactions: [ 
+            new Reaction(r_parar_d,{text:"Bloquear funcionamiento comite",cost:"D"}), 
+        ],    
+    }));
+
+    /*--- 2 ---*/
+
+    f.addEvent(new Event({
+        slug: "presoscuras",
+        defcon: 2,
+        delta_power:50,
+        min_defcon: 3, //asciende
+        coste: 800, 
+        text: "El partido conservador en el poder colaboran con El Papa en carceles para asistir a los presos.", 
+        reactions: [ 
+            new Reaction(r_parar_d,{text:"Encontrar tecnicismo legal para evitarlo",cost:"D"}), 
+        ],    
+    }));
+
+    /*--- 3 ---*/
+
+    f.addEvent(new Event({
+        slug: "takeover1",
+        defcon: 2,
+        delta_power:150,
+        min_defcon:4,//asciende
+        coste: 900, 
+        text: "El Partido conservador de {{country}} cede sus puestos a varios obispos.", 
+        reactions: [ 
+            new Reaction(r_parar_d,{text:"Organizar una campaña politica en contra",cost:"D"}), 
+            new Reaction(r_parar_d,{text:"Asesinar uno de los obispos para evitar la accion.",cost:"S"}), 
+        ],    
+    }));
+
+    /*--- 4 ---*/
+
+    f.addEvent(new Event({
+        slug: "takeover1",
+        defcon: 2,
+        delta_power:150,
+        //min_defcon:5,//asciende
+        coste: 900, 
+        text: "El Partido conservador de {{country}} cede sus puestos a varios obispos.", 
+        reactions: [ 
+            new Reaction(r_parar_d,{text:"Organizar una campaña politica en contra",cost:"D"}), 
+            new Reaction(r_parar_d,{text:"Asesinar uno de los obispos para evitar la accion.",cost:"S"}), 
         ],    
     }));
 

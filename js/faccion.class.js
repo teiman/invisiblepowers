@@ -167,7 +167,7 @@ function Faccion(nombre, slug){
     //TODO: ¿Como deberia cambiar el numero de eventos?
     //  De momento 3+defcon parece tener sentido. Mas angry=>mas activos. Como defcon crece despacio, no sera demasiados eventos
     this.getEventsNum = function(){
-        return 3+this.defcon;
+        return 3;
     }
 
     /**
