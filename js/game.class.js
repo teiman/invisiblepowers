@@ -25,7 +25,8 @@ var Game = (function(){
     //Preparamos las facciones originales
     // TODO: ¿creacion dinamica de facciones?
     var factions = [];
-    factions[Pope.slug] = Pope;
+    factions.push(Pope);
+    factions.push(DD9);
 
     //Indica el turno, los agentes se van N turnos, pero vuelven :D
     var turno = 1;
@@ -102,7 +103,7 @@ var Game = (function(){
                 desactivarBoton(this);
             }else{
                 //Una vez desactivado, ya no se activan, las acciones no tienen uno
-                // Mano firme director!, que no le tiemble la mano.
+                // ¡Mano firme director!, que no le tiemble la mano.
                 //activarBoton(this);
             }
         });
@@ -114,11 +115,7 @@ var Game = (function(){
             if(!a) continue;
             if(a.busyturn == turno){
                 console.log(`[Game][playerEvents] ¡Volvio especialista!`)
-                var e = new Event({
-                    faction_name: 'D.D.9',
-                    slug: 'retorno_especialista',
-                    text: `Ha retornado un especialista ${a.desc()}`,   
-                });
+                var e = DD9.genReturnAgentEvent(a);
                 Scene.addEvents([e]);
             }
         }
@@ -133,11 +130,18 @@ var Game = (function(){
         //Avanza el turno
         turno++;
 
-        Scene.clear();        
-        playerEvents();
-        //TODO: recorrer todas las facciones
-        Pope.next();
+        //Borramos escena
+        Scene.clear(); 
 
+        //Generamos eventos especificos de game para player
+        playerEvents();
+        
+        //Generamos otros eventos
+        factions.forEach(function(f){
+            f.next();
+        });
+
+        //Esperamos y re-renderizamos juego
         setTimeout(function(){
             Scene.redraw();
             update_ui();
@@ -160,6 +164,15 @@ var Game = (function(){
         ;
     }
 
+    function findFaction(slug){
+        var found = null;
+        factions.forEach(function(f){
+            if(f.slug == slug)
+                found = f;
+        })
+        return found;
+    }
+
     /**
      * El usuario apuesta un recurso en un evento.
      * El UI se actualizara, porque el recurso apostado se va N turnos. 
@@ -173,9 +186,8 @@ var Game = (function(){
         var direction = $(nodo).attr("data-direction");
         var cost = $(nodo).attr("data-cost");
 
-        if(factions[faction_slug]){
-            var f = factions[faction_slug];
-
+        var f = findFaction(faction_slug);
+        if(f){
             f.bet({
                 event_slug: event_slug,
                 direction:direction,
@@ -231,7 +243,8 @@ var Game = (function(){
         bet:bet,
         next:next,
         getTurn:getTurn,
-        getTeam:getTeam
+        getTeam:getTeam,
+        factions:factions,
     };
 
 })();

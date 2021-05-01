@@ -15,10 +15,13 @@ function Reaction(r,modifier){
         }
     
         var dato = modifier[key];
+        //console.log(`[Reaction] event:${r.event_slug},key:${key},tendra valor:${dato}`);
         this[key] = dato;
     }
 
     this.render = function(){
+        //console.log(`[Reaction][render] render reaction, dir:${r.direction}  even:${this.event_slug} para faction:${this.faction_slug}`);
+
         var btn = document.createElement("button");
         $(btn).attr("type","button");
         $(btn).attr("data-faction_slug",this.faction_slug);  

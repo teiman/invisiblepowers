@@ -3,8 +3,8 @@
 function Event(ev){
     if(!ev.delta_power)
         ev.delta_power= 0;
-    if(!ev.delta_power)
-        ev.delta_power= 0;  
+    if(!ev.min_defcon)
+        ev.min_defcon = 0;  
     if(!ev.defcon)
         ev.defcon= 0; 
     if(!ev.coste){
@@ -28,8 +28,9 @@ function Event(ev){
 
     this.slug = ev.slug;
     this.text = ev.text;
-    this.delta_alert = ev.delta_alert;
+    this.delta_defcon = ev.delta_defcon; // modifica el defcon
     this.delta_power = ev.delta_power; 
+    this.min_defcon = ev.min_defcon;// empuja el defcon hacia arriba
     this.faction_name = ev.faction_name;
     this.faction_slug = ev.faction_slug;
     this.defcon = ev.defcon;
@@ -46,22 +47,20 @@ function Event(ev){
 
     this.genHTML = function(){
         var template_event = $("#ui-event").html();
-        //var html = Mustache.render(template_event, this.asArray());
         var html = Mustache.render(template_event, this);
 
         if(this.reactions.length){
             var div = document.createElement("div");
             
             this.reactions.forEach(function(r){
-                if(!Game.canAfford(r.cost /* S D T */,ev.coste)){
-                    console.log(`[Event][genHTML] r.cost:${r.cost},ev.coste:${ev.coste}`);
+                if(!Game.canAfford(r.cost /* S D T */,1/*qty*/)){
+                    console.log(`[Event][genHTML] r.cost:${r.cost}`);
                     return;
                 }    
-
                 var btn = r.render();
                 $(div).append(btn);
             });        
-
+            
             html = html + $(div).html();
         }
         return html;

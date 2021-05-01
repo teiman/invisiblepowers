@@ -54,12 +54,20 @@ function Faccion(nombre, slug){
                 this.power = 0;
             }
         }
-        if(delta.defcon && !isNaN(delta.defcon)){
-            this.defcon = this.defcon + delta.defcon;
+        
+        if(delta.delta_defcon && !isNaN(delta.delta_defcon)){
+            this.defcon = this.defcon + delta.delta_defcon;
+            
             if(this.defcon<0){
                 this.defcon = 0;
             }else if( this.defcon >6){
                 this.defcon = 6;
+            }
+        }
+
+        if(delta.min_defcon && !isNaN(delta.min_defcon)){
+            if(delta.min_defcon > this.defcon){
+                this.defcon = this.defcon + 1;
             }
         }
 
@@ -110,7 +118,12 @@ function Faccion(nombre, slug){
         var evs = [];
         var defcon = this.defcon;
         this.events.forEach(function(e){
-            if(e.defcon == defcon){
+            //NOTA: podria ser igual, pero si escribimos pocos eventos entonces se repetiran mucho
+            // que fuera igual pondria mucha presion en escribir muchos eventos y nivelar el juego a todos los
+            // niveles.
+            // Al hacerlo igual o menos se mezclaran los eventos con lo que habra una variedad mayor
+            // mas facilmente.  Los eventos de defcon alto seran mas especiales y llamativos?
+            if(e.defcon <= defcon){
                 evs.push(e);
             }
         });
@@ -170,6 +183,7 @@ function Faccion(nombre, slug){
 
         var delta_power_final = 0;
         var delta_defcon = 0;
+        var min_defcon = 0;
         var eventos_reaccion = this.eventos_reaccion;
 
         console.log(`[Faccion][processPendingEvents] Se van a procesar ${eventos_reaccion.length} eventos`);
@@ -187,17 +201,18 @@ function Faccion(nombre, slug){
                 if(r.direction =="help"){
                     console.log("[processPendingEvents] player favorecio el evento:"+ e.slug)
                 }
-                
-                //Game.usarRecurso(e.coste,1);
             }
 
             delta_power_final += e.delta_power;
             if(e.delta_defcon) delta_defcon += e.delta_defcon;
+
+            if(e.min_defcon){
+                if(e.min_defcon>min_defcon){
+                    min_defcon = e.min_defcon;
+                }
+            }
         });
 
-        //Defon solo puede cambiar en 1, no pude pasar de 1 a 6 de golpe.
-        if(delta_defcon>1) delta_defcon = 1;
-        if(delta_defcon<-1) delta_defcon = -1;
 
         if(delta_defcon){
             console.log("[Faccion][processPendingEvents] AVISO!: cambia el DEFCON de la faccion:" + this.name);
@@ -205,7 +220,8 @@ function Faccion(nombre, slug){
         
         var delta = {
             power: delta_power_final,
-            defcon: delta_defcon,
+            delta_defcon: delta_defcon,
+            min_defcon: min_defcon,
         };
 
         console.log("[Faccion][processPendingEvents] Delta:");
