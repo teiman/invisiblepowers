@@ -1,0 +1,124 @@
+
+
+html {
+    padding:0px;
+    background-color: #731516;
+}
+
+body {
+    margin:0px;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    background-color: #731516;
+    background: linear-gradient(180deg, #222 0%, rgba(115,21,22,1) 100%);
+}
+
+.pastilla {
+    margin-left: 5%;
+    margin-right: 5%;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    background-color: #ddd;
+    padding-left: 1em;
+    padding-right: 1em;
+    margin-bottom: 1em;
+    border-radius: 8px;
+    background: linear-gradient(360deg, #333 0%, #ddd 0.5em);
+}
+
+p {
+    font-family: 'Open Sans', sans-serif;
+    margin-top: 0.4em;
+    margin-bottom: 0.4em;
+}
+
+h2 {
+    padding-top:0px;
+    padding-bottom: 0px;
+    margin-top:0px;
+    margin-bottom: 0px;
+}
+
+h3 {
+    font-family: 'Open Sans', sans-serif;
+    padding-top:0px;
+    padding-bottom: 0px;
+    margin-top:0px;
+    margin-bottom: 0px;
+}
+
+
+
+#ui-box {
+    margin-top: 2em;
+    padding-left: 5%;
+    padding-right: 5%;
+
+    display:block;
+    width:100%;
+    background-color:#731516;
+    font-family: 'Open Sans', sans-serif;
+}
+
+#ui-box p {
+  
+    font-family: 'Open Sans', sans-serif;
+    margin:0px;
+
+    color: gray;
+    text-shadow: 0 0 4px #222, 0 0 13px #333;
+}
+
+#ui-box b {
+    background-color:black;
+    border-radius: 0.2em;
+    padding-left:0.2em;
+    padding-right:0.2em;
+}
+
+#next-box {
+    margin-top: 2em;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+#next-box button {
+    font-family: 'Open Sans', sans-serif;
+    padding: 0.4em;
+}
+
+.arrow {
+    border: solid red;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+}
+
+.right {
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+}
+
+.left {
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+}
+
+.up {
+    transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg);
+}
+
+.down {
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+}
+
+.mono p {
+    font-family: 'Courier New', Courier, monospace!important;
+}
+
+h2 {
+    color: rgb(39, 34, 34);
+}
+
