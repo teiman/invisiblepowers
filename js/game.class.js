@@ -108,6 +108,22 @@ var Game = (function(){
         });
     }
 
+    function playerEvents(){
+        for(var t=0;t<team.length;t++){
+            var a = team[t];
+            if(!a) continue;
+            if(a.busyturn == turno){
+                console.log(`[Game][playerEvents] ¡Volvio especialista!`)
+                var e = new Event({
+                    faction_name: 'D.D.9',
+                    slug: 'retorno_especialista',
+                    text: `Ha retornado un especialista ${a.desc()}`,   
+                });
+                Scene.addEvents([e]);
+            }
+        }
+    }
+
     /**
      * El juego avanza un turno.
      * Corren los eventos, se redibuja la pantalla.
@@ -118,10 +134,14 @@ var Game = (function(){
         turno++;
 
         Scene.clear();        
+        playerEvents();
         //TODO: recorrer todas las facciones
         Pope.next();
-        Scene.redraw();
-        update_ui();
+
+        setTimeout(function(){
+            Scene.redraw();
+            update_ui();
+        },200);
     }
 
     function desactivarBoton(nodo){
@@ -163,8 +183,8 @@ var Game = (function(){
                 faction_slug:faction_slug,
             });
 
-            //TODO: numero de turnos variable, de momento hardcodeamos a 1 turno
-            usarRecurso(cost,1);
+            //TODO: numero de turnos variable, de momento hardcodeamos a 5 turno
+            usarRecurso(cost,5);
 
             desactivarBoton(nodo);
         }else{

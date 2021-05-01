@@ -36,8 +36,8 @@ var Pope = (function(){
         delta_power:1,
         text: "El Papa ha organizado un rezo en la plaza de Roma. 2 millones de personas se han unido.",   
         reactions: [ 
-            new Reaction(r_apoyar_d,{}),
-            new Reaction(r_parar_d,{}), 
+            new Reaction(r_apoyar_d,{text:"Rezar"}),
+            new Reaction(r_parar_d,{text:"Crear disturvios"}), 
         ], 
     }));
 

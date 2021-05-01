@@ -13,4 +13,15 @@ function Agent(opt){
         }
         return false;
     };
+
+    this.desc = function(){
+        switch(this.type){
+            case "S":
+                return "Soldado";
+            case "D":   
+                return "Diplomatico";
+            case "T":
+                return "Tecnico";
+        }
+    };
 }
