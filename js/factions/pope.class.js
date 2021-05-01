@@ -146,7 +146,7 @@ var Pope = (function(){
 
     f.addEvent(new Event({
         slug: "takeover1",
-        defcon: 2,
+        defcon: 3,
         delta_power:150,
         min_defcon:4,//asciende
         coste: 900, 
@@ -161,15 +161,55 @@ var Pope = (function(){
 
     f.addEvent(new Event({
         slug: "takeover1",
-        defcon: 2,
+        defcon: 4,
         delta_power:150,
-        //min_defcon:5,//asciende
+        min_defcon:5,//asciende
         coste: 900, 
         text: "El Partido conservador de {{country}} cede sus puestos a varios obispos.", 
         reactions: [ 
             new Reaction(r_parar_d,{text:"Organizar una campaña politica en contra",cost:"D"}), 
             new Reaction(r_parar_d,{text:"Asesinar uno de los obispos para evitar la accion.",cost:"S"}), 
         ],    
+    }));
+
+    /*--- 5 ---*/
+
+    f.addEvent(new Event({
+        slug: "takeover2",
+        defcon: 5,
+        delta_power:150,
+        min_defcon:6,//asciende
+        coste: 900, 
+        text: "El Papa publica 'Comentarios Iluminados' con textos inspirados por un angel.", 
+        reactions: [ 
+            new Reaction(r_parar_d,{text:"Organizar una campaña politica en contra",cost:"D"}), 
+            new Reaction(r_parar_d,{text:"Destruir imprentas e impidir distribucion.",cost:"S"}), 
+        ],    
+    }));
+
+    f.addEvent(new Event({
+        slug: "takeover3",
+        defcon: 5,
+        delta_power:150,
+        volatil_destruccion_mundo: 10,//20% posibilidad destruccion del mundo
+        coste: 900, 
+        min_defcon:6,
+        text: "Fotografias del papa conversando con un Angel salen a la luz.", 
+        reactions: [ 
+            new Reaction(r_parar_d,{text:"Desmentir las imagenes",cost:"D"}), 
+            new Reaction(r_parar_d,{text:"Impedir la distribucion de las fotos.",cost:"S"}), 
+        ],    
+    }));
+
+    /*--- 6 ---*/
+
+    f.addEvent(new Event({
+        slug: "takeover3",
+        defcon: 6,
+        delta_power:150,
+        volatil_destruccion_mundo: 90,//posibilidad destruccion del mundo
+        coste: 900, 
+        text: "El Papa da bienvenida al nuevo mundo, la gente empieza a desaparecer, es la rapture.", 
     }));
 
     /* ----------------- /eventos -------------- */
