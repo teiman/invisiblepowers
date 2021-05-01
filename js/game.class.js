@@ -6,28 +6,74 @@ Diplomatico: D
 Tecnico: T
 */
 
-
-
 var Game = (function(){
     function logme(tag,msg){ console.log("[Game]["+tag+"] "+msg)};    
 
-    var soldados = 5;
-    var diplomaticos = 3;
-    var tecnicos = 2;
+    //Preparamos team con los agentes iniciales
+    var team = [];
+    team.push( new Agent({type:'S'}));
+    team.push( new Agent({type:'S'}));
+    team.push( new Agent({type:'S'}));
+    team.push( new Agent({type:'S'}));
+    team.push( new Agent({type:'S'}));
+    team.push( new Agent({type:'D'}));
+    team.push( new Agent({type:'D'}));
+    team.push( new Agent({type:'D'}));
+    team.push( new Agent({type:'T'}));
+    team.push( new Agent({type:'T'}));
 
+    //Preparamos las facciones originales
+    // TODO: ¿creacion dinamica de facciones?
     var factions = [];
     factions[Pope.slug] = Pope;
 
+    //Indica el turno, los agentes se van N turnos, pero vuelven :D
     var turno = 1;
 
-    var colasRecuperacionRecursos = [];
+    /**
+     * Cuenta cuantos agentes de este tipo hay disponibles
+     * 
+     * @param string tipo 
+     * @returns integer
+     */
+    function colaCount(tipo){
+        var count = 0;
+        for(var t=0;t<team.length;t++){
+            var a = team[t];
+            if(!a) continue;
+            if(a.type != tipo){
+                //console.log(`[Game][colaCount] a.type:${a.type} != tipo:${tipo}`);
+                continue;
+            }
+            if(a.isBusy()) continue;
+            count++;
+        }
+        return count;
+    }
+
+    /**
+     * Devuelve el primer agente de este tipo disponible
+     * 
+     * @param string tipo 
+     * @returns Agent|null
+     */
+    function colaFirstAvailTypo(tipo){
+        for(var t=0;t<team.length;t++){
+            var a = team[t];
+            if(!a) continue;
+            if(a.type != tipo) continue;
+            if(a.isBusy()) continue;
+            return a;
+        }
+        return null;
+    }
 
 
     function getTeam(){
         return {
-            soldados: soldados,
-            diplomaticos: diplomaticos,
-            tecnicos: tecnicos
+            soldados: colaCount('S'),
+            diplomaticos: colaCount('D'),
+            tecnicos: colaCount('T')
         };
     }
 
@@ -55,17 +101,24 @@ var Game = (function(){
             if(!canAfford(cost,1)){
                 desactivarBoton(this);
             }else{
-                activarBoton(this);
+                //Una vez desactivado, ya no se activan, las acciones no tienen uno
+                // Mano firme director!, que no le tiemble la mano.
+                //activarBoton(this);
             }
         });
     }
 
+    /**
+     * El juego avanza un turno.
+     * Corren los eventos, se redibuja la pantalla.
+     */
     function next(){
         logme("next","...");
         //Avanza el turno
         turno++;
 
         Scene.clear();        
+        //TODO: recorrer todas las facciones
         Pope.next();
         Scene.redraw();
         update_ui();
@@ -87,6 +140,13 @@ var Game = (function(){
         ;
     }
 
+    /**
+     * El usuario apuesta un recurso en un evento.
+     * El UI se actualizara, porque el recurso apostado se va N turnos. 
+     * Otros botones pueden desactivarse si se agota el recurso.
+     * 
+     * @param HTMLNode nodo 
+     */
     function bet(nodo){
         var event_slug = $(nodo).attr("data-event_slug");
         var faction_slug = $(nodo).attr("data-faction_slug");
@@ -114,46 +174,30 @@ var Game = (function(){
     }
 
     function usarRecurso(recurso,turnos){
-        console.log(`[Game][usaRecursos] ...`);
-        console.log(`[Game][usaRecursos] recurso:${recurso},turnos:${turnos}`);
-        switch(recurso){
-            case "D":
-                diplomaticos--;
-                if(diplomaticos<0)
-                    diplomaticos = 0;
-                break;
-            case "T":
-                tecnicos--;
-                if(tecnicos<0)
-                    tecnicos = 0;
-                break;
-            case "S":
-                soldados--;
-                if(soldados<0)
-                    soldados = 0;
-                break;
+        console.log(`[Game][usaRecurso] ...`);
+        console.log(`[Game][usaRecurso] recurso:${recurso},turnos:${turnos}`);
+        if(!turnos)
+            turnos = 1;
+
+        //Coge el primer desocupado
+        var agent = colaFirstAvailTypo(recurso);
+        if(!agent){
+            console.log(`[Game][usaRecurso] ERROR: no se pudo consumir recurso de tipo:${recurso} `)
+            return;
         }
+
+        //Aumenta hasta que turno estara ocupado
+        agent.busyturn = turno + turnos;
 
         update_ui();
     }
 
     function canAfford(recurso,qty){
-        switch(recurso){
-            case "D":
-                if(diplomaticos>=qty)
-                    return true;
-                break;
-            case "T":
-                if(tecnicos>=qty)
-                    return true;
-                break;
-            case "S":
-                if(soldados>=qty)
-                    return true;
-                break;
-        }
+        return (colaCount(recurso)>=qty);
+    }
 
-        return false;
+    function getTurn(){
+        return turno;
     }
 
     $(function(){
@@ -166,6 +210,7 @@ var Game = (function(){
         usarRecurso:usarRecurso,
         bet:bet,
         next:next,
+        getTurn:getTurn,
         getTeam:getTeam
     };
 
