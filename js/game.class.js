@@ -47,6 +47,17 @@ var Game = (function(){
 
         var html = Mustache.render(template, data);
         $("#ui-box").html(html);
+
+        $(".btn-reaction").each(function(){
+            //<button type="button" data-faction_slug="pope" data-event_slug="hospital1" 
+            //data-direction="stop" data-cost="D" onclick="Game.bet(this)" class="btn-reaction">(D) Sabotear</button>
+            var cost = $(this).attr("data-cost");
+            if(!canAfford(cost,1)){
+                desactivarBoton(this);
+            }else{
+                activarBoton(this);
+            }
+        });
     }
 
     function next(){
@@ -58,7 +69,22 @@ var Game = (function(){
         Pope.next();
         Scene.redraw();
         update_ui();
+    }
 
+    function desactivarBoton(nodo){
+        $(nodo).prop("disabled",true)
+        .prop("readonly",true)
+        .prop("disabled",true)
+        .addClass("disabled")
+        ;
+    }
+
+    function activarBoton(nodo){
+        $(nodo).prop("disabled",false)
+        .prop("readonly",false)
+        .prop("disabled",false)
+        .removeClass("disabled")
+        ;
     }
 
     function bet(nodo){
@@ -80,11 +106,7 @@ var Game = (function(){
             //TODO: numero de turnos variable, de momento hardcodeamos a 1 turno
             usarRecurso(cost,1);
 
-            $(nodo).prop("disabled",true)
-                .prop("readonly",true)
-                .prop("disabled",true)
-                .addClass("active")
-                ;
+            desactivarBoton(nodo);
         }else{
             console.log("[Game][bet] No encontrada faccion:"+faction_slug+", en:");
             console.log(factions);
@@ -135,6 +157,7 @@ var Game = (function(){
     }
 
     $(function(){
+        //Initial update so the game always have a ui even on turn 0 
         update_ui();
     });
 

@@ -14,6 +14,7 @@ function Reaction(r,modifier){
         $(btn).attr("data-cost",this.cost);        
         $(btn).text("("+this.cost+") " + this.text);
         $(btn).attr("onclick","Game.bet(this)")
+        $(btn).addClass("btn-reaction");
         return btn;
     }
 }

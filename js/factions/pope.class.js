@@ -1,4 +1,15 @@
 
+/*
+ Plan de dominacion mundial: 
+ 0=> influir opinion 
+ 1=> influir las leyes
+ 2=> hacer que las leyes se ejecuten al maximo
+ 3=> demonizar a quienes vayan en contra
+ 4=> milagros, santos
+ 5=> destruir reinos enemigos
+ 6=> activar el rapture 
+*/
+
 var Pope = (function(){
     var f = new Faccion("El Papa de Roma","pope");
 
