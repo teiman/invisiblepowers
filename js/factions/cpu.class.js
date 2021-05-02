@@ -5,7 +5,7 @@
  * 
  */
  var CPU = (function(){
-    var f = new Faccion("Hivemind AI","CPU");
+    var f = new Faccion("Conglomerado AI","CPU");
 
     FF.registrarAmigo(f.slug,"CPU");
     FF.registrarEnemigo(f.slug,"USA");

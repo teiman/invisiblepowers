@@ -6,7 +6,7 @@
  * 
  */
  var PC = (function(){
-    var f = new Faccion("Partido Comunista","PC");
+    var f = new Faccion("Libertad Trabajadores","PC");
 
     FF.registrarAmigo(f.slug,"CPU");
     FF.registrarEnemigo(f.slug,"USA");
@@ -83,6 +83,18 @@
             new Reaction(r_apoyar,{text:"Bloquear difusion de la noticia",cost:"D"}),
         ], 
     }));
+
+        /*--- 0 ---*/
+        f.addEvent(new Event({
+            slug: "libro1",
+            defcon: 1,
+            delta_power:15,
+            cost: 300,
+            text: "Se publica un libro 'Las 100 formas en las que {{company}}' explota a sus trabajadores.",   
+            reactions: [ 
+                new Reaction(r_apoyar,{text:"Bloquear difusion del libro",cost:"D"}),
+            ], 
+        }));
 
     /* ---------------- /eventos --------------- */ 
 

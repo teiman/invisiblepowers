@@ -265,8 +265,8 @@ function Faccion(nombre, slug){
         if(this.acumpower<0) this.acumpower = 0;
 
         this.power = this.power - 5;
-        if(this.power<0)
-            this.power = 0;
+        if(this.power<1)
+            this.power = 1;
     };
 
     this.playerApoya = function(){

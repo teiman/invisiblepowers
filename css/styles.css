@@ -2,15 +2,17 @@
 
 html {
     padding:0px;
-    background-color: #731516;
+    zbackground-color: #731516;
+    background-color: #666;
 }
 
 body {
     margin:0px;
     padding-top: 1em;
     padding-bottom: 1em;
-    background-color: #731516;
-    background: linear-gradient(180deg, #222 0%, rgba(115,21,22,1) 100%);
+    zbackground-color: #731516;
+    zbackground: linear-gradient(180deg, #222 0%, rgba(115,21,22,1) 100%);
+    background: linear-gradiente(180deg, #666 0%, #444 100%);
 }
 
 .pastilla {
@@ -23,7 +25,8 @@ body {
     padding-right: 1em;
     margin-bottom: 1em;
     border-radius: 8px;
-    background: linear-gradient(360deg, #333 0%, #ddd 0.5em);
+    zbackground: linear-gradient(360deg, #333 0%, #ddd 0.5em);
+    border: 3px solid black;
 }
 
 p {
