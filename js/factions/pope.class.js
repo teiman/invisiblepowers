@@ -214,12 +214,23 @@ var Pope = (function(){
 
     /* ----------------- /eventos -------------- */
 
+    /* ------------- FF -------------- */
+    FF.registrarAmigo(f.slug,"USA");
+    FF.registrarEnemigo(f.slug,"CPU");
+    FF.registrarEnemigo(f.slug,"PC");
+
+    /* ------------- /FF -------------- */
+
     function bet(data){ f.bet(data); }
     function next(){ f.next(); }
+    function playerPerjudica(){ f.playerPerjudica(); }
+    function playerApoya(){ f.playerApoya(); }
 
     return {
         bet: bet,
         next: next,
+        playerPerjudica:playerPerjudica,
+        playerApoya:playerApoya,
         slug: f.slug,
         name: f.name,
         f:f,

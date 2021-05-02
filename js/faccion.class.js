@@ -131,7 +131,7 @@ function Faccion(nombre, slug){
         return evs;
     };
 
-    //TODO: aplicar coste de eventos aqui?
+    //La faccion intenta cosas, le cueste poder acumulado
     this.buyRandomEvents = function(num){
         logme("buyRandomEvents","...");
         var evs = [];
@@ -141,7 +141,6 @@ function Faccion(nombre, slug){
         for(var t=0;t<num;t++){
             var e = randomElement(ev_available);
             if(!e){
-                //logme("buyRandomEvents","W: no consiguio events");
                 continue;
             }
     
@@ -165,7 +164,6 @@ function Faccion(nombre, slug){
     }
 
     //TODO: ¿Como deberia cambiar el numero de eventos?
-    //  De momento 3+defcon parece tener sentido. Mas angry=>mas activos. Como defcon crece despacio, no sera demasiados eventos
     this.getEventsNum = function(){
         return 3;
     }
@@ -176,12 +174,11 @@ function Faccion(nombre, slug){
      * @returns 
      */
     this.processPendingEvents = function(){
-
-
         var delta_power_final = 0;
         var delta_defcon = 0;
         var min_defcon = 0;
         var eventos_reaccion = this.eventos_reaccion;
+        var faction_slug = this.slug;
 
         console.log(`[Faccion][processPendingEvents] Se van a procesar ${eventos_reaccion.length} eventos`);
         if(this.cola_eventos_esperando.length){           
@@ -193,10 +190,12 @@ function Faccion(nombre, slug){
 
                     if(r.direction == "block" || r.direction == "stop"){
                         console.log("[processPendingEvents] se ha suprimido el evento")
+                        FF.perjudicaFaccion(faction_slug);
                         return;
                     }
                     if(r.direction =="help"){
                         console.log("[processPendingEvents] player favorecio el evento:"+ e.slug)
+                        FF.favoreceFaccion(faction_slug);
                     }
                 }
 
@@ -258,6 +257,14 @@ function Faccion(nombre, slug){
 
         //Recordara eventos para turno actual
         this.setPendingEvents(evs);
-    }
+    };
+
+    this.playerPerjudica = function(){
+        console.log(`[Faction][playerPerjudica] ${this.slug} se perjudica de acciones del jugador`);
+    };
+
+    this.playerApoya = function(){
+        console.log(`[Faction][playerApoya] ${this.slug} se beneficia de acciones del jugador`);
+    };
 
 }

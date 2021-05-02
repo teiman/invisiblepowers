@@ -27,6 +27,9 @@ var Game = (function(){
     var factions = [];
     factions.push(Pope);
     factions.push(DD9);
+    factions.push(CPU);
+    factions.push(PC);
+    factions.push(USA);
 
     //Indica el turno, los agentes se van N turnos, pero vuelven :D
     var turno = 1;
@@ -232,6 +235,19 @@ var Game = (function(){
         return turno;
     }
 
+    function perjudicaFaccion(slug){
+        console.log(`[Game][perjudicaFaccion] perjudica a ${slug}`);
+        var f = findFaction(slug);
+        if(!f)return;
+        f.playerPerjudica();
+    }
+    function favoreceFaccion(slug){
+        console.log(`[Game][favoreceFaccion] ayuda a ${slug}`);
+        var f = findFaction(slug);
+        if(!f)return;
+        f.playerApoya();
+    }
+
     $(function(){
         //Initial update so the game always have a ui even on turn 0 
         update_ui();
@@ -244,6 +260,8 @@ var Game = (function(){
         next:next,
         getTurn:getTurn,
         getTeam:getTeam,
+        perjudicaFaccion: perjudicaFaccion,
+        favoreceFaccion: favoreceFaccion,
         factions:factions,
     };
 
