@@ -261,10 +261,18 @@ function Faccion(nombre, slug){
 
     this.playerPerjudica = function(){
         console.log(`[Faction][playerPerjudica] ${this.slug} se perjudica de acciones del jugador`);
+        this.acumpower = this.acumpower - 10;
+        if(this.acumpower<0) this.acumpower = 0;
+
+        this.power = this.power - 5;
+        if(this.power<0)
+            this.power = 0;
     };
 
     this.playerApoya = function(){
         console.log(`[Faction][playerApoya] ${this.slug} se beneficia de acciones del jugador`);
+        this.acumpower = this.acumpower + 10;
+        this.power = this.power + 5;
     };
 
 }

@@ -48,12 +48,16 @@ function Event(ev){
     this.genHTML = function(){
         var template_event = $("#ui-event").html();
 
-        //Templates para texto
-        var randomcountry = PAISES.rand();
+        //Templates para texto. Permite randomizar partes de un evento.
+        var country = PAISES.rand();
         var smallnum = (Math.random()*100%5).toFixed();
+        var instituto = INSTITUTOS.rand();
+        var company = COMPANY.rand();
         this.text_render =  Mustache.render(this.text, {
-            country: randomcountry,
+            country: country,
             smallnum: smallnum,
+            instituto: instituto,
+            company:company
         });
 
         //Generate

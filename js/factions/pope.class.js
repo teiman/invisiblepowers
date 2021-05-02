@@ -38,7 +38,7 @@ var Pope = (function(){
         reactions: [ 
             new Reaction(r_apoyar_d,{text:"Rezar"}),
             new Reaction(r_parar_d,{text:"Crear disturvios"}), 
-            new Reaction(r_parar_d,{text:"Romper tuberia para indundar la plaza",cost:"T"}), 
+            new Reaction(r_parar_d,{text:"Romper tuberia para inundar la plaza",cost:"T"}), 
         ], 
     }));
 
