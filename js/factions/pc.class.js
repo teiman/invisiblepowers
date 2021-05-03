@@ -1,12 +1,10 @@
 
-
-
 /**
- * PC faction.
+ * Progreso Social / Derechos de los trabajadores / Transhumanismo
  * 
  */
  var PC = (function(){
-    var f = new Faccion("Libertad Trabajadores","PC");
+    var f = new Faccion("Human Institute","PC");
 
     FF.registrarAmigo(f.slug,"CPU");
     FF.registrarEnemigo(f.slug,"USA");
@@ -84,17 +82,17 @@
         ], 
     }));
 
-        /*--- 0 ---*/
-        f.addEvent(new Event({
-            slug: "libro1",
-            defcon: 1,
-            delta_power:15,
-            cost: 300,
-            text: "Se publica un libro 'Las 100 formas en las que {{company}}' explota a sus trabajadores.",   
-            reactions: [ 
-                new Reaction(r_apoyar,{text:"Bloquear difusion del libro",cost:"D"}),
-            ], 
-        }));
+    /*--- 1 ---*/
+    f.addEvent(new Event({
+        slug: "libro1",
+        defcon: 1,
+        delta_power:15,
+        cost: 300,
+        text: "Se publica un libro 'Las 100 formas en las que {{company}}' explota a sus trabajadores.",   
+        reactions: [ 
+            new Reaction(r_apoyar,{text:"Bloquear difusion del libro",cost:"D"}),
+        ], 
+    }));
 
     /* ---------------- /eventos --------------- */ 
 

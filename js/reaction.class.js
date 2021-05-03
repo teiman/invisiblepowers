@@ -20,8 +20,6 @@ function Reaction(r,modifier){
     }
 
     this.render = function(){
-        //console.log(`[Reaction][render] render reaction, dir:${r.direction}  even:${this.event_slug} para faction:${this.faction_slug}`);
-
         var btn = document.createElement("button");
         $(btn).attr("type","button");
         $(btn).attr("data-faction_slug",this.faction_slug);  

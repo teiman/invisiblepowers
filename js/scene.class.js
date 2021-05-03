@@ -8,7 +8,7 @@ var Scene = (function(){
         logme("clear","...");
 
         events_next = [];
-        $("#root").html("");
+        $("#root-box").html("");
     }
 
     function addEvents(evs){
@@ -45,10 +45,41 @@ var Scene = (function(){
         events_next.forEach(function(e){ 
             var html = e.genHTML();
             var div = document.createElement('div');
-            $(div).addClass("pastilla");
+            $(div).addClass("pastilla2");
             $(div).html(html);
-            $("#root").append(div);
+            if(1) $("#root-box").append(div);
         });
+
+        var forma = function(datos){
+            var podercocos = datos.podercocos;
+            var str = "";
+            for(var t=0;t<podercocos;t++){
+                str += "⬤";
+            }
+            datos.podercocos = str;
+            return datos;
+        }
+
+        var informe = {
+            lista: [
+                forma({enfadococos:Pope.f.acumhate,nombre: Pope.name, podercocos: Pope.f.defcon}),
+                forma({enfadococos:CPU.f.acumhate,nombre: CPU.name, podercocos: CPU.f.defcon}),
+                forma({enfadococos:USA.f.acumhate,nombre: USA.name, podercocos: USA.f.defcon}),
+                forma({enfadococos:PC.f.acumhate,nombre: PC.name, podercocos: PC.f.defcon}),
+            ]
+        };
+        var template_informe = $("#ui-informe").html();
+        var html = Mustache.render(template_informe, informe);
+        $("#root-box").append(html);
+
+        /*
+        var d6 = ( Pope.f.defcon>5 || CPU.f.defcon>5 || USA.f.defcon>5 || PC.f.defcon>5);
+
+        if(!d6){
+            setTimeout(function(){
+                $("#btn-next").click();
+            },0);
+        }*/
     }
 
     return {

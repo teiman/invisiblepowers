@@ -10,6 +10,14 @@
  6=> activar el rapture 
 */
 
+/**
+ * El Papa de Roma.
+ * La iglesia catolica, y religiones compatibles. Dedicadas a la purificacion de las almas y 
+ * traer el paraiso a la tierra mediante lo que llaman el "Rapture", el retorno de jesus 
+ * a la tierra, llevandose a casi toda la poblacion al cielo.
+ * 
+ */
+
 var Pope = (function(){
     var f = new Faccion("El Papa de Roma","pope");
 

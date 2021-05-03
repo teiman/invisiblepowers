@@ -34,6 +34,18 @@ function Faccion(nombre, slug){
     this.acumpower = 10;
 
     /**
+     * HATE. 
+     * El odio que tiene esta faccion por el jugador. 
+     */
+    this.acumhate = 0;
+
+    /**
+     * LOVE. 
+     * El amor que tiene esta faccion por el jugador. 
+     */
+    this.acumlove = 0;
+
+    /**
      * Eventos esperando.
      * Se han producido y si nada lo impide se ejecutaran.
      */
@@ -168,6 +180,7 @@ function Faccion(nombre, slug){
         return 3;
     }
 
+    
     /**
      * Aplica las decisiones del jugador en el turno anterior
      * y los efectos que estos tienen
@@ -180,8 +193,25 @@ function Faccion(nombre, slug){
         var eventos_reaccion = this.eventos_reaccion;
         var faction_slug = this.slug;
 
+        var self = this;
+        var deltaHate = function(m){
+            self.acumhate = self.acumhate + m;    
+            if(self.acumhate<0)
+                self.acumhate = 0;    
+
+            console.log(`[Faction][playerPerjudica].deltaHate ${self.slug} (${m}) acumhate: ${self.acumhate} `);
+        };
+        var deltaLove = function(m){
+            self.acumlove = self.acumlove + m;    
+            if(self.acumlove<0)
+                self.acumlove = 0;    
+
+            console.log(`[Faction][playerPerjudica].deltaLove ${self.slug} (${m}) acumlove: ${self.acumlove} `);
+        };
+
         console.log(`[Faccion][processPendingEvents] Se van a procesar ${eventos_reaccion.length} eventos`);
         if(this.cola_eventos_esperando.length){           
+
             this.cola_eventos_esperando.forEach(function(e){            
                 if(eventos_reaccion[e.slug]){
                     var r = eventos_reaccion[e.slug];
@@ -191,11 +221,16 @@ function Faccion(nombre, slug){
                     if(r.direction == "block" || r.direction == "stop"){
                         console.log("[processPendingEvents] se ha suprimido el evento")
                         FF.perjudicaFaccion(faction_slug);
+                        deltaHate(5);
+                        deltaLove(-1);
                         return;
                     }
                     if(r.direction =="help"){
                         console.log("[processPendingEvents] player favorecio el evento:"+ e.slug)
                         FF.favoreceFaccion(faction_slug);
+                        deltaHate(-1); 
+                        deltaLove(5);
+                        console.log(`[Faction][playerPerjudica] ${this.slug} -acumhate: ${this.acumhate} `);
                     }
                 }
 
@@ -273,6 +308,10 @@ function Faccion(nombre, slug){
         console.log(`[Faction][playerApoya] ${this.slug} se beneficia de acciones del jugador`);
         this.acumpower = this.acumpower + 10;
         this.power = this.power + 5;
+
+        this.acumhate = this.acumhate - 1;
+        if(this.acumhate<0)
+            this.acumhate = 0;  
     };
 
 }

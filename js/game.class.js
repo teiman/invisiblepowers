@@ -92,7 +92,9 @@ var Game = (function(){
             data["p_power"] = Pope.f.power;
             data["p_defcon"] = Pope.f.defcon;
             data["p_acumpower"] = Pope.f.acumpower;
+            data["p_acumhate"] = Pope.f.acumhate;
         }
+
         //console.log("Pope.f.power:"+ Pope.f.power);
 
         var html = Mustache.render(template, data);
@@ -130,6 +132,9 @@ var Game = (function(){
      */
     function next(){
         logme("next","...");
+
+        var DELAY_RENDER = 200;//normalmente 200
+
         //Avanza el turno
         turno++;
 
@@ -148,7 +153,7 @@ var Game = (function(){
         setTimeout(function(){
             Scene.redraw();
             update_ui();
-        },200);
+        },DELAY_RENDER);
     }
 
     function desactivarBoton(nodo){

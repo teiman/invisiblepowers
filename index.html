@@ -33,7 +33,7 @@
 <script src="js/game.class.js" type="text/javascript" defer></script>
 
 
-<div id="root">
+<div id="root-box">
     <div class="pastilla"> 
         <h2>Fuerzas Invisibles</h2>
 
@@ -47,7 +47,7 @@
 </div>
 
 <div id="next-box">
-    <button type="button" onclick="Game.next()"><i class="arrow right"></i> Siguiente turno</button>
+    <button id="btn-next" type="button" onclick="Game.next()"><i class="arrow right"></i> Siguiente turno</button>
 </div>
 
 <div id="ui-box">
@@ -55,15 +55,47 @@
 </div>
 
 <script type="template" id="ui-template"> 
-    <p>Soldados: <b>{{soldados}}</b> - Diplomaticos: <b>{{diplomaticos}}</b> - Tecnicos: <b>{{tecnicos}}</b></p>
-    <!--<br>
-    <p>Debug:</p>
-    <p>P.power {{p_power}}</p>
-    <p>P.defcon {{p_defcon}}</p>
-    <p>P.acumpower {{p_acumpower}}</p>-->
+    <div class="faction-stats">
+        <p>Soldados: <b>{{soldados}}</b></p>
+        <p>Diplomaticos: <b>{{diplomaticos}}</b></p>
+        <p>Tecnicos: <b>{{tecnicos}}</b></p>
+    </div>
 </script>
 
 <script type="template" id="ui-event"> 
-    <h3 class='faction-name'>{{faction_name}}</h3>
-    <p>{{text_render}}</p>
+    <h1 class="title">{{faction_name}}</h1>
+    <div class="inner">
+        <div style="margin:1em">
+            <p>{{text_render}}</p>
+        </div>
+    </div>
+</script>
+
+
+<script type="template" id="ui-informe">
+    <div class="pastilla2">
+        <h1 class="title">D.D.9 Informe de las faccion</h1>
+        <div class="inner">
+            <div style="margin-left: auto;margin-right: auto;max-width: 600px">
+                <table border=0 width='100%'>
+                    <thead>
+                        <tr>
+                            <th align="right">Irritación</th>
+                            <th align="center">Facción</th>
+                            <th align="left">Alerta</th>
+                        </tr>
+                    </thead>
+                    <tbody id="poder-facciones" >
+                        {{#lista}}
+                        <tr>
+                            <td align="right">{{enfadococos}}</td>
+                            <td align="center">{{nombre}}</td>
+                            <td align="left">{{podercocos}}</td>
+                        </tr>    
+                        {{/lista}}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 </script>

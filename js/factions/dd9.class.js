@@ -1,6 +1,6 @@
 
 /**
- * Player faction.
+ * Player faction. Proteger la humanidad del apocalipsis
  * 
  */
 var DD9 = (function(){

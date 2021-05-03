@@ -1,7 +1,8 @@
 
 
 /**
- * Computer faction.
+ * Computer faction. Conglomerado de inteligencias artificiales.
+ * Humanos fans de las inteligencias artificiales, cientificos y tecnicos.
  * 
  */
  var CPU = (function(){
@@ -29,7 +30,7 @@
         defcon: 0,
         delta_power:50,
         cost: 400,
-        min_defcon:1,
+        min_defcon:1,//avance
         text: "Salto tecnologico realizado en sistemas de AI. Nuevos sistemas automotivados de logica.",   
         reactions: [ 
             new Reaction(r_apoyar,{text:"Invertir en la tecnologia",cost:"D"}),
@@ -59,6 +60,18 @@
         text: "{{instituto}} publica una tecnica de IA mejorada.",   
     }));
 
+    f.addEvent(new Event({
+        slug: "art1",
+        defcon: 0,
+        delta_power:1,
+        cost: 200,
+        text: "Un artista en {{country}} realiza una exposición de arte digital.",  
+        reactions: [ 
+            new Reaction(r_apoyar,{text:"Sabotear exposición",cost:"S"}),
+        ] 
+    }));
+
+
     /*--- 1 ---*/
     f.addEvent(new Event({
         slug: "aiplus4",
@@ -82,6 +95,48 @@
             new Reaction(r_parar,{text:"Hackear el instituto y destruir datos de investigacion",cost:"T"}), 
         ], 
     }));
+
+    f.addEvent(new Event({
+        slug: "id1",
+        defcon: 1,
+        delta_power:5,
+        cost: 200,
+        min_defcon: 2,
+        text: "{{instituto}} investiga una tecnologia de interfaz hombre-maquina.",   
+        reactions: [ 
+            new Reaction(r_apoyar,{text:"Invertir en la tecnologia",cost:"D"}),
+        ], 
+    }));
+
+    /*--- 2 ---*/
+
+    f.addEvent(new Event({
+        slug: "cpu1",
+        defcon: 2,
+        delta_power:10,
+        coste: 200,
+        text: "{{company}} anuncia nueva tecnologia de gestion desarrollada por {{instituto}}.",   
+        reactions: [ 
+            new Reaction(r_parar,{text:"Atacar las instalaciones, destruir computadoras",cost:"S"}),
+            new Reaction(r_parar,{text:"Poner la opinion publica en contra",cost:"D"}), 
+        ], 
+    }));
+
+    /*--- 3 ---*/
+
+    f.addEvent(new Event({
+        slug: "cpu1",
+        defcon: 2,
+        delta_power:10,
+        coste: 200,
+        text: "{{company}} revoluciona la domotica con una grid ",   
+        reactions: [ 
+            new Reaction(r_parar,{text:"Atacar las instalaciones, destruir computadoras",cost:"S"}),
+            new Reaction(r_parar,{text:"Poner la opinion publica en contra",cost:"D"}), 
+        ], 
+    }));
+    
+
     /* ---------------- /eventos --------------- */   
 
 
