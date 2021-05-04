@@ -6,6 +6,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Open+Sans&family=Open+Sans+Condensed:wght@300&display=swap" rel="stylesheet">
 
 <link href="css/styles.css" rel="stylesheet">
+<link href="css/fx.css" rel="stylesheet">
 
 <!--<script src="https://code.jquery.com/jquery-3.1.0.js"></script>-->
 <script src="js/lib/jquery-1.11.3.js"></script>
@@ -34,7 +35,9 @@
 
 
 <div id="root-box">
+    
     <div class="pastilla"> 
+        <div class="outbox" style="padding:3em;">
         <h2>Fuerzas Invisibles</h2>
 
         <div class="mono">
@@ -42,6 +45,7 @@
         <p>Multiples facciones ponen en peligro la seguridad del mundo. Su mision como Director sera proteger la estabilidad mundial.</p>
         <p>Cuentas con diversos especialistas para las misiones. Uselos con cuidado. Una vez enviado un especialista, no volvera en varios turnos.</p>
         <p>Mantenga en casa especialistas para protegernos de un posible ataque.</p>
+        </div>
         </div>
     </div>  
 </div>
@@ -55,18 +59,21 @@
 </div>
 
 <script type="template" id="ui-template"> 
-    <div class="faction-stats">
-        <p>Soldados: <b>{{soldados}}</b></p>
-        <p>Diplomaticos: <b>{{diplomaticos}}</b></p>
-        <p>Tecnicos: <b>{{tecnicos}}</b></p>
-    </div>
+        <div class="faction-stats">
+            <p>Soldados: <b>{{soldados}}</b></p>
+            <p>Diplomaticos: <b>{{diplomaticos}}</b></p>
+            <p>Tecnicos: <b>{{tecnicos}}</b></p>
+        </div>
 </script>
 
 <script type="template" id="ui-event"> 
-    <h1 class="title">{{faction_name}}</h1>
-    <div class="inner">
-        <div style="margin:1em">
-            <p>{{text_render}}</p>
+    <div class="outbox">
+        <div class="inner">
+            <h1 class="title">{{faction_name}}</h1>
+            <div style="margin:1em">
+                <p>{{text_render}}</p>
+            </div>
+            {{{html_botones}}}
         </div>
     </div>
 </script>
@@ -74,28 +81,30 @@
 
 <script type="template" id="ui-informe">
     <div class="pastilla2">
-        <h1 class="title">D.D.9 Informe de las faccion</h1>
-        <div class="inner">
-            <div style="margin-left: auto;margin-right: auto;max-width: 600px">
-                <table border=0 width='100%'>
-                    <thead>
-                        <tr>
-                            <th align="right">Irritación</th>
-                            <th align="center">Facción</th>
-                            <th align="left">Alerta</th>
-                        </tr>
-                    </thead>
-                    <tbody id="poder-facciones" >
-                        {{#lista}}
-                        <tr>
-                            <td align="right">{{enfadococos}}</td>
-                            <td align="center">{{nombre}}</td>
-                            <td align="left">{{podercocos}}</td>
-                        </tr>    
-                        {{/lista}}
-                    </tbody>
-                </table>
+        <div class="outbox">
+            <h1 class="title">D.D.9 Informe de las faccion</h1>
+            <div class="inner">
+                <div style="margin-left: auto;margin-right: auto;max-width: 600px">
+                    <table border=0 width='100%'>
+                        <thead>
+                            <tr>
+                                <th align="right">Irritación</th>
+                                <th align="center">Facción</th>
+                                <th align="left">Alerta</th>
+                            </tr>
+                        </thead>
+                        <tbody id="poder-facciones" >
+                            {{#lista}}
+                            <tr>
+                                <td align="right">{{enfadococos}}</td>
+                                <td align="center">{{nombre}}</td>
+                                <td align="left">{{podercocos}}</td>
+                            </tr>    
+                            {{/lista}}
+                        </tbody>
+                    </table>
+                </div>
             </div>
-        </div>
+        </div><!-- /outbox -->
     </div>
 </script>

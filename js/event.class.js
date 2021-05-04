@@ -60,9 +60,7 @@ function Event(ev){
             company:company
         });
 
-        //Generate
-        var html = Mustache.render(template_event, this);
-
+        this.html_botones = "";
         if(this.reactions.length){
             var div = document.createElement("div");
             
@@ -75,8 +73,12 @@ function Event(ev){
                 $(div).append(btn);
             });        
             
-            html = html + $(div).html();
+            this.html_botones = $(div).html();
         }
+
+        //Generate
+        var html = Mustache.render(template_event, this);
+        
         return html;
     };
 }
