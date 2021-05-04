@@ -29,6 +29,8 @@ body {
     margin-right: 5%;
     margin-bottom: 1em;
     border-radius: 8px;
+
+    border: 2px solid gray;
 }
 
 h1,h2,h3 {
@@ -232,11 +234,21 @@ a {
     margin-right: 0.5m;
     margin-top: 0.4em;
     margin-bottom: 0.4em;
-    background-color: #95c9b0;
+    background-color: transparent;
+    border: 0px;
+    color:#222;
 }
 
 .btn-reaction:disabled {
-    background-color: gray;
+    opacity:0.4;
+    text-decoration: underline;
+    animation: none;
+}
+
+.btn-reaction:hover {
+    text-decoration: underline;
+    animation:none;
+    color:lime;
 }
 
 .inner p {

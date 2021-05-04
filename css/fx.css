@@ -1,1 +1,51 @@
+.btn-reaction {
+    color: black;
+    animation: blink 1s infinite alternate;
+}
 
+
+@keyframes blink {
+    0% {
+      text-decoration: none;
+    }
+    100% {
+      text-decoration: underline;
+    }
+  }
+
+/*
+ .Prompt__cursor {
+    height: 17px;
+    width: 8px;
+    background: white;
+    display: block;
+    margin-left: 8px;
+    animation: 2000ms ease infinite alternate blink;
+  }
+  @keyframes blink {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+*/
+/*
+div {
+  width: 200px;
+  height: 200px;
+  border-radius: 100px;
+  background-color: #ccc;
+  animation: glow 1s infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0 0 10px -10px #aef4af;
+  }
+  to {
+    box-shadow: 0 0 10px 10px #aef4af;
+  }
+}
+  */
