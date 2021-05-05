@@ -28,8 +28,8 @@
     f.addEvent(new Event({
         slug: "aiplus1",
         defcon: 0,
-        delta_power:50,
-        cost: 400,
+        delta_power:10,
+        cost: 200,
         min_defcon:1,//avance
         text: "Salto tecnologico realizado en sistemas de AI. Nuevos sistemas automotivados de logica.",   
         reactions: [ 
@@ -56,7 +56,7 @@
         slug: "aiplus3",
         defcon: 0,
         delta_power:5,
-        cost: 200,
+        cost: 100,
         text: "{{instituto}} publica una tecnica de IA mejorada.",   
     }));
 
@@ -115,6 +115,7 @@
         defcon: 2,
         delta_power:10,
         coste: 200,
+        min_defcon: 3,
         text: "{{company}} anuncia nueva tecnologia de gestion desarrollada por {{instituto}}.",   
         reactions: [ 
             new Reaction(r_parar,{text:"Atacar las instalaciones, destruir computadoras",cost:"S"}),
@@ -125,8 +126,8 @@
     /*--- 3 ---*/
 
     f.addEvent(new Event({
-        slug: "cpu1",
-        defcon: 2,
+        slug: "cpu2",
+        defcon: 3,
         delta_power:10,
         coste: 200,
         text: "{{company}} revoluciona la domotica con una grid ",   
@@ -136,6 +137,72 @@
         ], 
     }));
     
+    f.addEvent(new Event({
+        slug: "cpu3",
+        defcon: 3,
+        delta_power:10,
+        min_defcon: 4,
+        coste: 200,
+        text: "Melissa, un sistema de IA, se convierte en el CEO de {{company}}",   
+        reactions: [ 
+            new Reaction(r_parar,{text:"Atacar las instalaciones, destruir computadoras",cost:"S"}),
+            new Reaction(r_parar,{text:"Poner la opinion publica en contra",cost:"D"}), 
+        ], 
+    }));
+
+    /*--- 4 ---*/
+
+    f.addEvent(new Event({
+        slug: "cpu4",
+        defcon: 4,
+        delta_power:10,
+        coste: 200,
+        text: "Grupo de IAs pasan el test de turing en {{institute}}",   
+        reactions: [ 
+            new Reaction(r_apoyar,{text:"Apoyar publicamente",cost:"D"}),
+            new Reaction(r_parar,{text:"Destruir instalaciones",cost:"S"}),
+        ], 
+    }));
+
+    f.addEvent(new Event({
+        slug: "cpu5",
+        defcon: 4,
+        delta_power:10,
+        coste: 200,
+        text: "Tetraplejico vuelve a andar con IA integrada",   
+        reactions: [ 
+            new Reaction(r_apoyar,{text:"Apoyar publicamente",cost:"D"}),
+            new Reaction(r_parar,{text:"Savotear sistema",cost:"S"}),
+        ], 
+    }));
+
+    f.addEvent(new Event({
+        slug: "cpu5",
+        defcon: 4,
+        delta_power:10,
+        coste: 200,
+        min_defcon: 5,
+        text: "{{company}} anuncia AI revolucionaria capaz de pensamiento similar al humano",   
+        reactions: [ 
+            new Reaction(r_apoyar,{text:"Apoyar publicamente",cost:"D"}),
+            new Reaction(r_parar,{text:"Savotear sistema",cost:"S"}),
+        ], 
+    }));
+
+    /*--- 5 ---*/   
+
+    f.addEvent(new Event({
+        slug: "cpu5",
+        defcon: 4,
+        delta_power:10,
+        coste: 200,
+        min_defcon: 6,
+        text: "En una gran ceremonia, el gobierno de {{country}} ha sido cedido a un nuevo sistema IA.",   
+        reactions: [ 
+            new Reaction(r_apoyar,{text:"Apoyar publicamente",cost:"D"}),
+            new Reaction(r_parar,{text:"Denunciar publicamente",cost:"S"}),
+        ], 
+    }));
 
     /* ---------------- /eventos --------------- */   
 

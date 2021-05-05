@@ -9,6 +9,11 @@ Tecnico: T
 var Game = (function(){
     function logme(tag,msg){ console.log("[Game]["+tag+"] "+msg)};    
 
+    //Enable the balance mode
+    // On balance mode the game run automatically
+    // and stop as soon one faction gets to defcon 6
+    var TESTBALANCE = false;
+
     //Preparamos team con los agentes iniciales
     var team = [];
     team.push( new Agent({type:'S'}));
@@ -133,7 +138,7 @@ var Game = (function(){
     function next(){
         logme("next","...");
 
-        var DELAY_RENDER = 200;//normalmente 200
+        var DELAY_RENDER = 200;
 
         //Avanza el turno
         turno++;
@@ -149,11 +154,18 @@ var Game = (function(){
             f.next();
         });
 
+        var delay_redraw = DELAY_RENDER;
+
+        //Part of the balance test system
+        if(Game.TESTBALANCE){
+            delay_redraw = 0;
+        }
+
         //Esperamos y re-renderizamos juego
         setTimeout(function(){
             Scene.redraw();
             update_ui();
-        },DELAY_RENDER);
+        },delay_redraw);
     }
 
     function desactivarBoton(nodo){
@@ -268,6 +280,7 @@ var Game = (function(){
         perjudicaFaccion: perjudicaFaccion,
         favoreceFaccion: favoreceFaccion,
         factions:factions,
+        TESTBALANCE:TESTBALANCE,
     };
 
 })();

@@ -47,7 +47,7 @@ var Scene = (function(){
             var div = document.createElement('div');
             $(div).addClass("pastilla2");
             $(div).html(html);
-            if(1) $("#root-box").append(div);
+            if(!Game.TESTBALANCE) $("#root-box").append(div);
         });
 
         var forma = function(datos){
@@ -72,14 +72,16 @@ var Scene = (function(){
         var html = Mustache.render(template_informe, informe);
         $("#root-box").append(html);
 
-        /*
-        var d6 = ( Pope.f.defcon>5 || CPU.f.defcon>5 || USA.f.defcon>5 || PC.f.defcon>5);
+        //Part of the balance test mode 
+        if(Game.TESTBALANCE){
+            var d6 = ( Pope.f.defcon>5 || CPU.f.defcon>5 || USA.f.defcon>5 || PC.f.defcon>5);
 
-        if(!d6){
-            setTimeout(function(){
-                $("#btn-next").click();
-            },0);
-        }*/
+            if(!d6){
+                setTimeout(function(){
+                    $("#btn-next").click();
+                },0);
+            }
+        }
     }
 
     return {

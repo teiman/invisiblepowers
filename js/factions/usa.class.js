@@ -20,6 +20,8 @@
         text: "Sabotear",
         direction: "stop"
     })
+    
+    var BALANCE_COST = 15;
 
     /* ---------------- eventos --------------- */   
 
@@ -28,7 +30,7 @@
         slug: "neolib1",
         defcon: 0,
         delta_power:5,
-        cost: 200,
+        cost: 200+BALANCE_COST,
         text: "USA negocia tratado de libre comercio con {{country}}.",   
         reactions: [ 
             new Reaction(r_apoyar,{text:"Apoyar negociaciones",cost:"D"}),
@@ -40,7 +42,7 @@
         slug: "neolib2",
         defcon: 0,
         delta_power:5,
-        cost: 200,
+        cost: 200+BALANCE_COST,
         text: "USA pasa al senado una nueva de Copyright mas restrictiva.",   
         reactions: [ 
             new Reaction(r_parar,{text:"Apoyar economicamente al lobby en contra",cost:"D"}),
@@ -51,7 +53,7 @@
         slug: "neolib2",
         defcon: 0,
         delta_power:5,
-        cost: 200,
+        cost: 200+BALANCE_COST,
         text: "USA vende armas a {{country}}.",   
         reactions: [ 
             new Reaction(r_parar,{text:"Destruir transporte de armas",cost:"S"}),
@@ -62,7 +64,7 @@
         slug: "neolib2",
         defcon: 0,
         delta_power:5,
-        cost: 400,
+        cost: 400+BALANCE_COST,
         text: "USA en guerra economica con {{country}}, propone sanciones.",   
         reactions: [ 
             new Reaction(r_parar,{text:"Apoyar economicamente al lobby en contra",cost:"D"}),
@@ -74,7 +76,7 @@
         slug: "base1",
         defcon: 0,
         delta_power:15,
-        cost: 800,
+        cost: 800+BALANCE_COST,
         min_defcon:1,//asciende
         text: "USA crea negocia una base militar en {{country}}.",   
         reactions: [ 
@@ -86,7 +88,7 @@
         slug: "base1",
         defcon: 0,
         delta_power:5,
-        cost: 800,
+        cost: 800+BALANCE_COST,
         min_defcon:1,//asciende
         text: "Disturvios raciales en California tras muerte de un negro a manos de la policia.",   
         reactions: [ 
@@ -100,7 +102,7 @@
         slug: "negocia1",
         defcon: 1,
         delta_power:10,
-        cost: 800,
+        cost: 800+BALANCE_COST,
         text: "USA negocia la extradicion de terroristas desde {{country}}.",   
         reactions: [ 
             new Reaction(r_parar,{text:"Sabotear negociaciones",cost:"D"}),
@@ -111,7 +113,7 @@
         slug: "visita1",
         defcon: 1,
         delta_power:10,
-        cost: 800,
+        cost: 800+BALANCE_COST,
         text: "El presidente de USA visita {{country}}.",   
         reactions: [ 
             new Reaction(r_parar,{text:"Sabotear visita",cost:"D"}),
@@ -123,7 +125,7 @@
         defcon: 1,
         min_defcon: 2,//asciende!
         delta_power:20,
-        cost: 800,
+        cost: 800+BALANCE_COST,
         text: "{{country}} privatiza su sistema de sanidad, con ayuda de empresas americanas.",   
         reactions: [ 
             new Reaction(r_parar,{text:"Sabotear visita",cost:"D"}),
@@ -135,7 +137,7 @@
         defcon: 1,
         min_defcon: 2,//asciende!
         delta_power:10,
-        cost: 800,
+        cost: 800+BALANCE_COST,
         text: "{{country}} privatiza su sistema de educacion. Sale al mercado en Wall Street",   
         reactions: [ 
             new Reaction(r_parar,{text:"Sabotear visita",cost:"D"}),
@@ -148,7 +150,7 @@
         slug: "amigo1",
         defcon: 2,
         delta_power:10,
-        cost: 400,
+        cost: 400+BALANCE_COST,
         text: "USA aconseja a {{country}} a mantener el salario minimo bajo.",   
         reactions: [ 
             new Reaction(r_parar,{text:"Influir en contra",cost:"T"}),
@@ -159,7 +161,7 @@
         slug: "amigo2",
         defcon: 2,
         delta_power:10,
-        cost: 400,
+        cost: 400+BALANCE_COST,
         text: "USA mantiene una guerra con {{country}} por los aranceles.",   
         reactions: [ 
             new Reaction(r_parar,{text:"Influir en la opinion public en contra",cost:"T"}),
@@ -170,7 +172,7 @@
         slug: "amigo2a",
         defcon: 2,
         delta_power:10,
-        cost: 400,
+        cost: 400+BALANCE_COST,
         min_defcon: 3,//asciende
         text: "La sexta flota avanza hacia el mar del indico en otra accion belica.",   
         reactions: [ 
@@ -183,7 +185,7 @@
         slug: "amigo3",
         defcon: 2,
         delta_power:10,
-        cost: 400,
+        cost: 400+BALANCE_COST,
         text: "USA pide a la union europea a apoyar sus sanciones contra {{country}}.",   
         reactions: [ 
             new Reaction(r_parar,{text:"Influir en contra",cost:"T"}),
@@ -197,7 +199,7 @@
         defcon: 3,
         delta_power: 25,
         min_defcon: 4,//asciende
-        cost: 800,
+        cost: 800+BALANCE_COST,
         text: "USA realiza una operacion militar en {{country}}, asesinando a lideres de este pais.",   
         reactions: [ 
             new Reaction(r_parar,{text:"Sabotear operación",cost:"T"}),
@@ -209,7 +211,7 @@
         defcon: 3,
         delta_power:25,
         min_defcon: 4,//asciende
-        cost: 800,
+        cost: 800+BALANCE_COST,
         text: "USA disuelve una huelga de mineros utilizando un producto quimico toxico rociado en la zona de la huelga.",   
         reactions: [ 
             new Reaction(r_parar,{text:"Sabotear operación",cost:"T"}),
@@ -223,7 +225,7 @@
         defcon: 4,
         delta_power:25,
         min_defcon: 5,//asciende
-        cost: 800,
+        cost: 800+BALANCE_COST,
         text: "{{country}} adopta el dolar como su moneda oficial.",   
         reactions: [ 
             new Reaction(r_parar,{text:"Sabotear operación",cost:"T"}),
@@ -237,7 +239,7 @@
         defcon: 5,
         delta_power:25,
         min_defcon: 6,//asciende
-        cost: 800,
+        cost: 800+BALANCE_COST,
         text: "{{country}} en la bancarrota, pide ayudas a USA.",   
         reactions: [ 
             new Reaction(r_parar,{text:"Sabotear operación",cost:"T"}),
@@ -250,7 +252,7 @@
         slug: "amigo5",
         defcon: 6,
         delta_power:25,
-        cost: 800,
+        cost: 800+BALANCE_COST,
         text: "Se celebra en New York el quinto año de la PAX Americana, con los lideres de las principales corporaciones mundiales.",   
         reactions: [ 
             new Reaction(r_parar,{text:"Sabotear fiesta",cost:"S"}),

@@ -21,6 +21,12 @@
 var Pope = (function(){
     var f = new Faccion("El Papa de Roma","pope");
 
+    //Balance hack.
+    f.power = 20;
+    f.acumpower = 1000;
+
+    var BALANCE_COST = -1;
+
     /* ---------------- reacciones --------------- */  
     var r_apoyar_d = new Reaction({
         text: "Apoyar",
@@ -42,6 +48,7 @@ var Pope = (function(){
         slug: "rezo1",
         defcon: 0,
         delta_power:5,
+        coste: 1,
         text: "El Papa ha organizado un rezo en la plaza de Roma. {{smallnum}} millones de personas se han unido.",   
         reactions: [ 
             new Reaction(r_apoyar_d,{text:"Rezar"}),
@@ -54,6 +61,7 @@ var Pope = (function(){
         slug: "hospital1",
         defcon: 0,
         delta_power:7,
+        coste: 50+BALANCE_COST,
         text: "El Papa visito un hospital de huerfanos repartiendo juguetes.",  
         reactions: [ 
             new Reaction(r_apoyar_d,{text:"Aportar dinero de ayuda"}),
@@ -66,7 +74,7 @@ var Pope = (function(){
         defcon: 0,
         min_defcon: 1,//Asciende el defcon!
         delta_power: 40,
-        coste: 200,
+        coste: 100+BALANCE_COST,
         text: "Se discute una ley para hacer obligatoria la religion en la educacion publica en {{country}}.",  
         reactions: [ 
             new Reaction(r_apoyar_d,{}),
@@ -78,8 +86,8 @@ var Pope = (function(){
         slug: "tv1",
         defcon: 0,
         min_defcon: 1,//Asciende el defcon!
-        delta_power: 100,
-        coste: 200,
+        delta_power: 50,
+        coste: 100+BALANCE_COST,
         text: "La iglesia catolica abre un nuevo canal de television en {{country}}.",  
         reactions: [ 
             new Reaction(r_apoyar_d,{}),
@@ -93,7 +101,7 @@ var Pope = (function(){
         slug: "milagro1",
         defcon: 1,
         delta_power:50,
-        coste: 500, 
+        coste: 500+BALANCE_COST, 
         text: "Durante una visita a un hospital de niños, un niño se curo expontaneamente, los medicos hablan de un milagro.", 
         reactions: [ 
             new Reaction(r_apoyar_d,{}),
@@ -105,7 +113,7 @@ var Pope = (function(){
         slug: "milagro2",
         defcon: 1,
         delta_power:20,
-        coste: 600, 
+        coste: 600+BALANCE_COST, 
         text: "El presidente de {{country}} visita al papa, durante su visita una paloma se posa en su brazo.", 
         reactions: [ 
             new Reaction(r_parar_d,{text:"Entrar trapos sucios del politico",cost:"D"}), 
@@ -116,7 +124,7 @@ var Pope = (function(){
         slug: "tv2",
         defcon: 1,
         delta_power:20,
-        coste: 600, 
+        coste: 600+BALANCE_COST, 
         text: "La television papal, la mas popular en {{country}}.", 
         reactions: [ 
             new Reaction(r_parar_d,{text:"Sabotear economia de la cadena",cost:"D"}), 
@@ -129,7 +137,7 @@ var Pope = (function(){
         defcon: 1,
         min_defcon: 2,//asciende 
         delta_power:20,
-        coste: 700, 
+        coste: 700+BALANCE_COST, 
         text: "El Papa elegido para liderar un comite etico en {{country}}.", 
         reactions: [ 
             new Reaction(r_parar_d,{text:"Bloquear funcionamiento comite",cost:"D"}), 
@@ -143,7 +151,7 @@ var Pope = (function(){
         defcon: 2,
         delta_power:50,
         min_defcon: 3, //asciende
-        coste: 800, 
+        coste: 800+BALANCE_COST, 
         text: "El partido conservador en el poder colaboran con El Papa en carceles para asistir a los presos.", 
         reactions: [ 
             new Reaction(r_parar_d,{text:"Encontrar tecnicismo legal para evitarlo",cost:"D"}), 
@@ -157,7 +165,7 @@ var Pope = (function(){
         defcon: 3,
         delta_power:150,
         min_defcon:4,//asciende
-        coste: 900, 
+        coste: 900+BALANCE_COST, 
         text: "El Partido conservador de {{country}} cede sus puestos a varios obispos.", 
         reactions: [ 
             new Reaction(r_parar_d,{text:"Organizar una campaña politica en contra",cost:"D"}), 
@@ -172,7 +180,7 @@ var Pope = (function(){
         defcon: 4,
         delta_power:150,
         min_defcon:5,//asciende
-        coste: 900, 
+        coste: 900+BALANCE_COST, 
         text: "El Partido conservador de {{country}} cede sus puestos a varios obispos.", 
         reactions: [ 
             new Reaction(r_parar_d,{text:"Organizar una campaña politica en contra",cost:"D"}), 
@@ -187,7 +195,7 @@ var Pope = (function(){
         defcon: 5,
         delta_power:150,
         min_defcon:6,//asciende
-        coste: 900, 
+        coste: 900+BALANCE_COST, 
         text: "El Papa publica 'Comentarios Iluminados' con textos inspirados por un angel.", 
         reactions: [ 
             new Reaction(r_parar_d,{text:"Organizar una campaña politica en contra",cost:"D"}), 
@@ -200,7 +208,7 @@ var Pope = (function(){
         defcon: 5,
         delta_power:150,
         volatil_destruccion_mundo: 10,//20% posibilidad destruccion del mundo
-        coste: 900, 
+        coste: 900+BALANCE_COST, 
         min_defcon:6,
         text: "Fotografias del papa conversando con un Angel salen a la luz.", 
         reactions: [ 
@@ -216,7 +224,7 @@ var Pope = (function(){
         defcon: 6,
         delta_power:150,
         volatil_destruccion_mundo: 90,//posibilidad destruccion del mundo
-        coste: 900, 
+        coste: 900+BALANCE_COST, 
         text: "El Papa da bienvenida al nuevo mundo, la gente empieza a desaparecer, es la rapture.", 
     }));
 
