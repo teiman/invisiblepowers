@@ -131,11 +131,19 @@ var Game = (function(){
         }
     }
 
+    function primerTurnoLimpia(){
+        $("#next-box").removeClass("ocu");
+        $("#ui-box").removeClass("ocu");
+    }
+
     /**
      * El juego avanza un turno.
      * Corren los eventos, se redibuja la pantalla.
      */
     function next(){
+
+        primerTurnoLimpia();
+
         logme("next","...");
 
         var DELAY_RENDER = 200;

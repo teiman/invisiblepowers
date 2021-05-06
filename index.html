@@ -4,6 +4,7 @@
 
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Open+Sans&family=Open+Sans+Condensed:wght@300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet"> 
 
 <link href="css/styles.css" rel="stylesheet">
 <link href="css/fx.css" rel="stylesheet">
@@ -36,8 +37,8 @@
 
 <div id="root-box">
     
-    <div class="pastilla"> 
-        <div class="outbox" style="padding:3em;">
+    <div class="intro"> 
+        <div class="outbox" style="padding:2em;">
         <h2>Fuerzas Invisibles</h2>
 
         <div class="mono">
@@ -45,43 +46,47 @@
         <p>Multiples facciones ponen en peligro la seguridad del mundo. Su mision como Director sera proteger la estabilidad mundial.</p>
         <p>Cuentas con diversos especialistas para las misiones. Uselos con cuidado. Una vez enviado un especialista, no volvera en varios turnos.</p>
         <p>Mantenga en casa especialistas para protegernos de un posible ataque.</p>
+
+        <p>
+            <button id="btn-next" type="button" onclick="Game.next()" style="padding-left: 1em;"> Empezar </button>
+        </p>
         </div>
         </div>
     </div>  
 </div>
 
-<div id="next-box">
+<div id="next-box" class="ocu">
     <button id="btn-next" type="button" onclick="Game.next()"><i class="arrow right"></i> Siguiente turno</button>
 </div>
 
-<div id="ui-box">
+<div id="ui-box" class="ocu">
 
 </div>
 
-<script type="template" id="ui-template"> 
+<script type="template" id="ui-template">
+
         <div class="faction-stats">
             <p>Soldados: <b>{{soldados}}</b></p>
             <p>Diplomaticos: <b>{{diplomaticos}}</b></p>
             <p>Tecnicos: <b>{{tecnicos}}</b></p>
         </div>
+
 </script>
 
 <script type="template" id="ui-event"> 
     <div class="outbox">
-        <div class="inner">
-            <h1 class="title">{{faction_name}}</h1>
-            <div style="margin:1em">
-                <p>{{text_render}}</p>
-            </div>
 
+            <h1 class="title">{{faction_name}}</h1>
+                <p>{{text_render}}</p>
+            <br>
+            <hr>
             {{{html_botones}}}
-        </div>
     </div>
 </script>
 
 
 <script type="template" id="ui-informe">
-    <div class="pastilla2">
+    <div class="pastilla">
         <div class="outbox">
             <h1 class="title">D.D.9 Informe de las faccion</h1>
             <div class="inner">

@@ -11,29 +11,25 @@ html {
     background-color: #204d58;
 }
 
-* {
-    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
-    box-sizing: border-box;         /* Opera/IE 8+ */
-}
-
 body {
-    font-size:0.9em;
-    font-family: 'ChicagoFLF', 'Times New Roman', 'Georgia', serif;
-
     margin:0px;
     padding-top: 1em;
     padding-bottom: 1em;
     background: linear-gradiente(180deg, #204d58 0%, #444 100%);
+
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    font-weight: normal;
+
     background-image: url(../img/bg2.png);
 }
 
-
-.intro {
+.pastilla {
     margin-left: 5%;
     margin-right: 5%;
     margin-bottom: 1em;
     border-radius: 8px;
+
     border: 2px solid gray;
 }
 
@@ -42,12 +38,8 @@ h1,h2,h3 {
     padding-bottom: 0px;
     margin-top:0px;
     margin-bottom: 0px;
-
-    font-size: 18px!important;
-    color: rgb(39, 34, 34);
-    font-family: 'ChicagoFLF', 'Times New Roman', 'Georgia', serif;
-    text-shadow: 0 0 5px #489171;
 }
+
 
 #ui-box {
     margin-top: 2em;
@@ -85,13 +77,72 @@ h1,h2,h3 {
     background-color: #95c9b0;
 }
 
-#btn-next {
-    font-family: 'ChicagoFLF', 'Times New Roman', 'Georgia', serif!important;
-    border-radius: 4px;
+.arrow {
+    border: solid red;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+}
+
+.right {
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+}
+
+.left {
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+}
+
+.up {
+    transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg);
+}
+
+.down {
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
 }
 
 
-.pastilla {
+.mono p {
+    font-size: 14px;
+    font-family: 'ChicagoFLF', 'Times New Roman', 'Georgia', serif!important;
+}
+
+h1,h2,h3 {
+    font-size: 18px!important;
+    color: rgb(39, 34, 34);
+    font-family: 'ChicagoFLF', 'Times New Roman', 'Georgia', serif;
+    text-shadow: 0 0 5px #489171;
+}
+
+button {
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+    font-weight: normal;
+    font-family: 'ChicagoFLF', 'Times New Roman', 'Georgia', serif;
+}
+
+.inner p {
+    font-size: 14px!important;    
+    font-weight: normal;
+    font-family: 'ChicagoFLF', 'Times New Roman', 'Georgia', serif;
+}
+
+
+a {
+    color: #000;
+}
+
+/* ------------------------------------------- */
+
+
+/* Window layout */
+.pastilla2 {
+    font-size: 12px;
+    font-weight: normal;
     max-width: 60em;
     min-width: 40%;
 
@@ -101,7 +152,6 @@ h1,h2,h3 {
     margin-bottom: 1em;
     
     display: inline-block;
-    min-height: 100px;
 
     border-style: solid;
     border-width: 32px 32px 32px 32px;
@@ -111,37 +161,42 @@ h1,h2,h3 {
     border-image: url(../img/b3x2.png) 32 32 32 32 repeat repeat;
 }
 
-.outbox {
-    padding:0px;
-    margin:0px;
-    background-color: #357564;
 
-    background-image: radial-gradient(
-         rgba(0, 150, 0, 0.75),
-         #357564 90%
-      );
-
-    max-height:100%;
+.title {
+    width: 100%;
+    text-align: center;
+    font-size: inherit;
+    font-weight: inherit;
+    padding: 1px 0;
+    background-size: 3px 2px;
+    margin: 0 0 0 0;
 }
 
-.outbox p {
-    margin:0px;
 
-    padding-top:0.4em;
-    font-family: 'Open Sans', sans-serif;
-    font-size: 16px;
+
+.clearfix:before,
+.clearfix:after {
+    content: " ";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+#btn-next {
+    font-family: 'ChicagoFLF', 'Times New Roman', 'Georgia', serif!important;
+    border-radius: 4px;
 }
 
 .btn-reaction {
     margin-left:0.5em;
     margin-right: 0.5m;
     margin-top: 0.4em;
-    font-size: 15px;
-    /*margin-bottom: 0.4em; causaba que se rompe el calculo de tamaño*/
+    margin-bottom: 0.4em;
     background-color: transparent;
     border: 0px;
     color:#222;
-    text-decoration: none;
 }
 
 .btn-reaction:disabled {
@@ -156,25 +211,30 @@ h1,h2,h3 {
     color:lime;
 }
 
-.title {
-    width: 100%;
-    text-align: center;
-    font-size: inherit;
-    font-weight: inherit;
-    padding: 1px 0;
-    background-size: 3px 2px;
-    margin: 0 0 0 0;
+.inner p {
+    font-size: 16px;
 }
 
 .faction-stats p {
     display:inline-block;
 }
 
-.ocu {
-    display:none!important;
+.outbox {
+    background-color: #357564;
+
+    background-image: radial-gradient(
+         rgba(0, 150, 0, 0.75),
+         #357564 90%
+      );
+
+    height:100%;
 }
 
-hr {
-    opacity: 0.4;
-    margin-bottom:0px;
+.glowtext {
+    text-shadow: 0 0 5px #C8C8C8;
+}
+
+
+.ocu {
+    display:none!important;
 }

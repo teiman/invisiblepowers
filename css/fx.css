@@ -1,15 +1,17 @@
 .btn-reaction {
+  display:block;
     color: black;
-    animation: blink 1s infinite alternate;
+    animation: blink 2s infinite alternate;
 }
 
 
 @keyframes blink {
     0% {
-      text-decoration: none;
+      color:#2dc469;
     }
     100% {
-      text-decoration: underline;
+      color: #1eea70;
+
     }
   }
 

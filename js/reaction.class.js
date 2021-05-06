@@ -20,8 +20,9 @@ function Reaction(r,modifier){
     }
 
     this.render = function(){
-        var btn = document.createElement("button");
-        $(btn).attr("type","button");
+        var btn = document.createElement("a");
+        
+        $(btn).attr("href","javascript:void(0)");    
         $(btn).attr("data-faction_slug",this.faction_slug);  
         $(btn).attr("data-event_slug",this.event_slug); 
         $(btn).attr("data-direction",this.direction);   

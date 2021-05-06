@@ -45,7 +45,7 @@ var Scene = (function(){
         events_next.forEach(function(e){ 
             var html = e.genHTML();
             var div = document.createElement('div');
-            $(div).addClass("pastilla2");
+            $(div).addClass("pastilla");
             $(div).html(html);
             if(!Game.TESTBALANCE) $("#root-box").append(div);
         });
