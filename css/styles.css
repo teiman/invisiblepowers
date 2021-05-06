@@ -127,6 +127,7 @@ h1,h2,h3 {
 .outbox p {
     margin:0px;
 
+    margin-left: 0.5em;
     padding-top:0.4em;
     font-family: 'Open Sans', sans-serif;
     font-size: 16px;
@@ -177,4 +178,14 @@ h1,h2,h3 {
 hr {
     opacity: 0.4;
     margin-bottom:0px;
+}
+
+a.disabled {
+  color: #aaa!important;
+  color: #aaa!important;
+  background-color:  #265447;
+}
+
+a.disabled:hover {
+    color: #aaa!important;
 }
