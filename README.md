@@ -1,7 +1,19 @@
 # invisiblepowers
 A game about invisible powers controlling the world and the incoming apocalypse
 
+Current factions:
+- The Pope
+- The United States of America
+- The Human Institute 
+- AI Conglomerate
+
+Current gameplay elements:
+ - Block/help factions events  
+
+
 TODO:
+
+game over conditions!
 
 new factions:
  - reptilians 
