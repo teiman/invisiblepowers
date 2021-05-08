@@ -34,21 +34,6 @@ var Scene = (function(){
     function redraw(){
         logme("redraw","...");
 
-        if(!events_next.length){
-            logme("redraw","W: ¡No hay eventos para renderizar!");
-            return;
-        }
-
-        //Orden de los eventos aleatorios
-        events_next = Coleccion(events_next).shuffle();
-
-        events_next.forEach(function(e){ 
-            var html = e.genHTML();
-            var div = document.createElement('div');
-            $(div).addClass("pastilla");
-            $(div).html(html);
-            if(!Game.TESTBALANCE) $("#root-box").append(div);
-        });
 
         var forma = function(datos){
             var podercocos = datos.podercocos;
@@ -71,6 +56,25 @@ var Scene = (function(){
         var template_informe = $("#ui-informe").html();
         var html = Mustache.render(template_informe, informe);
         $("#root-box").append(html);
+
+                
+        if(!events_next.length){
+            logme("redraw","W: ¡No hay eventos para renderizar!");
+            return;
+        }
+
+        //Orden de los eventos aleatorios
+        events_next = Coleccion(events_next).shuffle();
+
+        events_next.forEach(function(e){ 
+            var html = e.genHTML();
+            var div = document.createElement('div');
+            $(div).addClass("pastilla");
+            $(div).html(html);
+            if(!Game.TESTBALANCE) $("#root-box").append(div);
+        });
+
+
 
         //Part of the balance test mode 
         if(Game.TESTBALANCE){

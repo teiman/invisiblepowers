@@ -47,33 +47,18 @@
         <p>Cuentas con diversos especialistas para las misiones. Uselos con cuidado. Una vez enviado un especialista, no volvera en varios turnos.</p>
         <p>Mantenga en casa especialistas para protegernos de un posible ataque.</p>
 
+        <hr>
+
         <p>
-            <button id="btn-next" type="button" onclick="Game.next()" style="padding-left: 1em;"> Empezar </button>
+            <a href="javascript:Game.next()" class="next-link"> &gt; iniciar </a>
         </p>
         </div>
         </div>
     </div>  
 </div>
 
-<div id="next-box" class="ocu">
-    <button id="btn-next" type="button" onclick="Game.next()"><i class="arrow right"></i> Siguiente turno</button>
-</div>
 
-<div id="ui-box" class="ocu">
-
-</div>
-
-<script type="template" id="ui-template">
-
-        <div class="faction-stats">
-            <p>Soldados: <b>{{soldados}}</b></p>
-            <p>Diplomaticos: <b>{{diplomaticos}}</b></p>
-            <p>Tecnicos: <b>{{tecnicos}}</b></p>
-        </div>
-
-</script>
-
-<script type="template" id="ui-event"> 
+<script id="ui-event" type="template"> 
     <div class="outbox">
 
             <h1 class="title">{{faction_name}}</h1>
@@ -85,8 +70,8 @@
 </script>
 
 
-<script type="template" id="ui-informe">
-    <div class="pastilla">
+<script id="ui-informe" type="template">
+    <div class="pastilla fullwidth">
         <div class="outbox">
             <h1 class="title">D.D.9 Informe de las faccion</h1>
             <div class="inner">
@@ -109,9 +94,24 @@
                             {{/lista}}
                         </tbody>
                     </table>
+
+                    <hr>
+
+                    <a href="javascript:Game.next()" class="next-link"> &gt; siguiente turno </a>
                 </div>
             </div>
         </div><!-- /outbox -->
+        <div class="outbox" id="ui-box">
+            <p>(S)oldados: <b>{{soldados}}</b></p>
+            <p>(D)iplomaticos: <b>{{diplomaticos}}</b></p>
+            <p>(T)ecnicos: <b>{{tecnicos}}</b></p>
+        </div>    
     </div>
 </script>
 
+
+<script id="ui-template" type="template">
+    <p>(S)oldados: <b>{{soldados}}</b></p>
+    <p>(D)iplomaticos: <b>{{diplomaticos}}</b></p>
+    <p>(T)ecnicos: <b>{{tecnicos}}</b></p>
+</script>

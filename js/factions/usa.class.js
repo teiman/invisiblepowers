@@ -138,9 +138,10 @@
         min_defcon: 2,//asciende!
         delta_power:10,
         cost: 800+BALANCE_COST,
-        text: "{{country}} privatiza su sistema de educacion. Sale al mercado en Wall Street",   
+        text: "{{country}} privatiza su sistema educativo. Sale al mercado en Wall Street",   
         reactions: [ 
-            new Reaction(r_parar,{text:"Sabotear visita",cost:"D"}),
+            new Reaction(r_apoyar,{text:"Apoyar salida a bolsa",cost:"D"}),
+            new Reaction(r_parar,{text:"Sabotear salida a bolsa",cost:"D"}),
         ], 
     }));
 

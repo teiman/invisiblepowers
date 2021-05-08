@@ -4,6 +4,9 @@
     animation: blink 2s infinite alternate;
 }
 
+.next-link {
+  animation: blink 2s infinite alternate;
+}
 
 @keyframes blink {
     0% {
@@ -11,9 +14,24 @@
     }
     100% {
       color: #1eea70;
-
     }
   }
+
+.outbox p {
+  animation: blinklcd 0.06s infinite alternate;
+}
+
+@keyframes blinklcd {
+  0% {
+    text-shadow: 5px 0px 22px rgba(3,79,0,1);
+  }
+  100% {
+    text-shadow: -5px 0px 22px rgba(3,79,0,1);
+
+  }
+}
+
+  
 
 /*
  .Prompt__cursor {

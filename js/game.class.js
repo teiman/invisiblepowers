@@ -106,8 +106,6 @@ var Game = (function(){
         $("#ui-box").html(html);
 
         $(".btn-reaction").each(function(){
-            //<button type="button" data-faction_slug="pope" data-event_slug="hospital1" 
-            //data-direction="stop" data-cost="D" onclick="Game.bet(this)" class="btn-reaction">(D) Sabotear</button>
             var cost = $(this).attr("data-cost");
             if(!canAfford(cost,1)){
                 desactivarBoton(this);
@@ -141,8 +139,7 @@ var Game = (function(){
      * Corren los eventos, se redibuja la pantalla.
      */
     function next(){
-
-        primerTurnoLimpia();
+        primerTurnoLimpia(); //En el turno 1 habilitamos elementos de UI
 
         logme("next","...");
 

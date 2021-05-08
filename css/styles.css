@@ -25,7 +25,7 @@ body {
     padding-top: 1em;
     padding-bottom: 1em;
     background: linear-gradiente(180deg, #204d58 0%, #444 100%);
-    background-image: url(../img/bg2.png);
+    background-image: url(../img/bg3.png);
 }
 
 
@@ -49,43 +49,10 @@ h1,h2,h3 {
     text-shadow: 0 0 5px #489171;
 }
 
-#ui-box {
-    margin-top: 2em;
-    display:block;
-    width:100%;
-    background-color:#731516;
-    font-family: 'Open Sans', sans-serif;
-}
-
-#ui-box p {
-    font-family: 'Open Sans', sans-serif;
-    margin:0px;
-    
-    color: gray;
-    text-shadow: 0 0 4px #222, 0 0 13px #333;
-}
-
-#ui-box b {
-    background-color:black;
-    border-radius: 0.2em;
-    padding-left:0.2em;
-    padding-right:0.2em;
-}
-
-#next-box {
-    margin-top: 1em;
-    padding-left: 1em;
-    padding-right: 5%;
-}
-
-#next-box button {
-    font-family: 'Open Sans', sans-serif;
-    padding: 0.4em;
-
-    background-color: #95c9b0;
-}
 
 #btn-next {
+    background-color: #95c9b0;
+    padding: 0.4em;
     font-family: 'ChicagoFLF', 'Times New Roman', 'Georgia', serif!important;
     border-radius: 4px;
 }
@@ -133,8 +100,9 @@ h1,h2,h3 {
     font-size: 16px;
 }
 
+
+
 .btn-reaction {
-    margin-left:0.5em;
     margin-right: 0.5m;
     margin-top: 0.4em;
     font-size: 15px;
@@ -143,13 +111,10 @@ h1,h2,h3 {
     border: 0px;
     color:#222;
     text-decoration: none;
+    text-shadow: 1px 1px 0px rgba(5, 5, 5, 0.55);
 }
 
-.btn-reaction:disabled {
-    opacity:0.4;
-    text-decoration: underline;
-    animation: none;
-}
+
 
 .btn-reaction:hover {
     text-decoration: underline;
@@ -182,10 +147,36 @@ hr {
 
 a.disabled {
   color: #aaa!important;
-  color: #aaa!important;
+  color: white!important;
+  text-decoration: none!important;
+  
   background-color:  #265447;
+
+  text-shadow: none;
+  outline: 1px solid rgb(0, 43, 0);
+  opacity: 0.8;
 }
 
 a.disabled:hover {
     color: #aaa!important;
+}
+
+.fullwidth {
+    width:90%;
+    display:block;
+}
+
+.next-link {
+    font-family: 'ChicagoFLF', 'Times New Roman', 'Georgia', serif;
+
+    font-size: 15px;
+    background-color: transparent;
+    border: 0px;
+    color: lime;
+    text-decoration: none;
+}
+
+.next-link:hover {
+    color: white;
+    text-decoration: underline;
 }

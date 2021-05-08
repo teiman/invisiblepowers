@@ -50,7 +50,7 @@ function Event(ev){
 
         //Templates para texto. Permite randomizar partes de un evento.
         var country = PAISES.rand();
-        var smallnum = (Math.random()*100%5).toFixed();
+        var smallnum = (Math.random()*100%5).toFixed()+2;
         var instituto = INSTITUTOS.rand();
         var company = COMPANY.rand();
         this.text_render =  Mustache.render(this.text, {
@@ -78,7 +78,7 @@ function Event(ev){
 
         //Generate
         var html = Mustache.render(template_event, this);
-        
+
         return html;
     };
 }
