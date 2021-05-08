@@ -180,3 +180,31 @@ a.disabled:hover {
     color: white;
     text-decoration: underline;
 }
+
+.faction-pope {
+    -moz-border-image: url(../img/bpope.png) 32 32 32 32 repeat repeat!important;
+    -webkit-border-image: url(../img/bpope.png) 32 32 32 32 repeat repeat!important;
+    -o-border-image: url(../img/bpope.png) 32 32 32 32 repeat repeat!important;
+    border-image: url(../img/bpope.png) 32 32 32 32 repeat repeat!important;
+}
+
+.faction-CPU {
+    -moz-border-image: url(../img/bcpu.png) 32 32 32 32 repeat repeat!important;
+    -webkit-border-image: url(../img/bcpu.png) 32 32 32 32 repeat repeat!important;
+    -o-border-image: url(../img/bcpu.png) 32 32 32 32 repeat repeat!important;
+    border-image: url(../img/bcpu.png) 32 32 32 32 repeat repeat!important;
+}
+
+.faction-USA {
+    -moz-border-image: url(../img/busa.png) 32 32 32 32 repeat repeat!important;
+    -webkit-border-image: url(../img/busa.png) 32 32 32 32 repeat repeat!important;
+    -o-border-image: url(../img/busa.png) 32 32 32 32 repeat repeat!important;
+    border-image: url(../img/busa.png) 32 32 32 32 repeat repeat!important;
+}
+
+.faction-PC {
+    -moz-border-image: url(../img/bpc.png) 32 32 32 32 repeat repeat!important;
+    -webkit-border-image: url(../img/bpc.png) 32 32 32 32 repeat repeat!important;
+    -o-border-image: url(../img/bpc.png) 32 32 32 32 repeat repeat!important;
+    border-image: url(../img/bpc.png) 32 32 32 32 repeat repeat!important;
+}

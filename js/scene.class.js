@@ -70,6 +70,7 @@ var Scene = (function(){
             var html = e.genHTML();
             var div = document.createElement('div');
             $(div).addClass("pastilla");
+            $(div).addClass("faction-"+e.faction_slug);
             $(div).html(html);
             if(!Game.TESTBALANCE) $("#root-box").append(div);
         });

@@ -6,6 +6,8 @@
  */
 
 const fs = require('fs')
+const { exec } = require("child_process");
+
 const piskelfile = "data/pix2.piskel";
 const outputdir = "output";
 
@@ -30,4 +32,17 @@ fs.readFile(piskelfile, 'utf8' , (err, data) => {
 
     console.log("Generating " + outfile + " from "+piskelfile);
     fs.writeFileSync( outfile, buffer);
+
+    exec("cd output && ./split.sh", (error, stdout, stderr) => {
+        if (error) {
+            console.log(`error: ${error.message}`);
+            return;
+        }
+        if (stderr) {
+            console.log(`stderr: ${stderr}`);
+            return;
+        }
+        console.log(`stdout: ${stdout}`);
+    });
+
 })
