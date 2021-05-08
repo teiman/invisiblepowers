@@ -10,6 +10,10 @@ function Event(ev){
     if(!ev.coste){
         ev.coste = 1;
     }
+    if(!ev.delta_defcon){
+        ev.delta_defcon = 0;
+    }
+
     if(!ev.text){
         console.log("ERROR: event withouth proper text:");
         console.log(ev);
@@ -25,6 +29,9 @@ function Event(ev){
     if(ev.reactions === undefined || ev.reactions === null ){
         ev.reactions = [];
     }
+    if(!ev.volatil_destruccion_mundo){
+        ev.volatil_destruccion_mundo = 0;
+    }
 
     this.slug = ev.slug;
     this.text = ev.text;
@@ -36,12 +43,27 @@ function Event(ev){
     this.defcon = ev.defcon;
     this.coste = ev.coste;
     this.reactions = ev.reactions;
+    this.volatil_destruccion_mundo = ev.volatil_destruccion_mundo;
 
     this.asArray = function(){
         return {
             faction_name: this.faction_name,
             text: this.text,
         };
+    };
+
+    this.isDoom = function(){
+        if(!this['volatil_destruccion_mundo']){
+            return null;
+        }
+
+        var r = Math.random()*10000%100; // num de 0 a 100.
+
+        if ( r < this.volatil_destruccion_mundo){
+            return this.faction_slug;
+        }
+
+        return null;
     };
 
 

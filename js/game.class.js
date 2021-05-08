@@ -135,6 +135,46 @@ var Game = (function(){
     }
 
     /**
+     * Check if gameover es necesario
+     * 
+     * @returns string
+     */
+    function gameOverChecks(){
+        console.log(`[Game][gameOverChecks] ...`);
+        var events = Coleccion(Scene.getEvents()).shuffle();
+
+        //console.log(events);
+
+        var doom = null;
+        events.forEach(function(e){ 
+            var this_doom = e.isDoom();
+
+            if(this_doom && !doom){
+                doom = this_doom;
+                console.log(`[Game][gameOverChecks] New doom!:`+doom);
+            }else{
+                console.log(`[Game][gameOverChecks] ---no-doom---: `+ e.slug + "-"+e.faction_slug);
+            }
+        });
+
+        return doom;
+    }
+
+    /**
+     * Act on game over
+     * 
+     * @param gameOver_type 
+     */
+    function gameOverScreen(type){
+        if(!type) return;
+
+        console.log(`[Game][gameOverScreen] type:`+type);
+
+        $(`#game-over-${type}`).removeClass("ocu");
+        $("#root-box").html("").hide();
+    }
+
+    /**
      * El juego avanza un turno.
      * Corren los eventos, se redibuja la pantalla.
      */
@@ -158,6 +198,12 @@ var Game = (function(){
         factions.forEach(function(f){
             f.next();
         });
+
+        var gameOver_type = gameOverChecks();
+
+        if(gameOver_type){
+            gameOverScreen(gameOver_type)
+        }
 
         var delay_redraw = DELAY_RENDER;
 

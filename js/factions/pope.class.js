@@ -19,13 +19,20 @@
  */
 
 var Pope = (function(){
-    var f = new Faccion("El Papa de Roma","pope");
+    var f = new Faccion("Iglesia Catolica","pope");
 
     //Balance hack.
     f.power = 20;
     f.acumpower = 1000;
-
+    
     var BALANCE_COST = -1;
+
+    if(0){
+        //Testing Pope wins
+        f.power = 2000;
+        f.acumpower = 100000;
+        f.defcon = 5;
+    }
 
     /* ---------------- reacciones --------------- */  
     var r_apoyar_d = new Reaction({
@@ -207,7 +214,7 @@ var Pope = (function(){
         slug: "takeover3",
         defcon: 5,
         delta_power:150,
-        volatil_destruccion_mundo: 10,//20% posibilidad destruccion del mundo
+        volatil_destruccion_mundo: 20,//20% posibilidad destruccion del mundo
         coste: 900+BALANCE_COST, 
         min_defcon:6,
         text: "Fotografias del papa conversando con un Angel salen a la luz.", 
@@ -220,7 +227,7 @@ var Pope = (function(){
     /*--- 6 ---*/
 
     f.addEvent(new Event({
-        slug: "takeover3",
+        slug: "takeover4",
         defcon: 6,
         delta_power:150,
         volatil_destruccion_mundo: 90,//posibilidad destruccion del mundo

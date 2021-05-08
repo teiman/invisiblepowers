@@ -122,20 +122,14 @@ function Faccion(nombre, slug){
     }
 
     /**
-     * Devuelve los eventos que tienen el nivel defcon correcto
+     * Devuelve los eventos que tienen el nivel defcon indicado
      * 
      * @returns array 
      */
-    this.listEventsAvailable = function(){
+    this.listEventsAvailable = function(defcon_target){
         var evs = [];
-        var defcon = this.defcon;
         this.events.forEach(function(e){
-            //NOTA: podria ser igual, pero si escribimos pocos eventos entonces se repetiran mucho
-            // que fuera igual pondria mucha presion en escribir muchos eventos y nivelar el juego a todos los
-            // niveles.
-            // Al hacerlo igual o menos se mezclaran los eventos con lo que habra una variedad mayor
-            // mas facilmente.  Los eventos de defcon alto seran mas especiales y llamativos?
-            if(e.defcon <= defcon){
+            if(e.defcon == defcon_target){
                 evs.push(e);
             }
         });
@@ -144,11 +138,11 @@ function Faccion(nombre, slug){
     };
 
     //La faccion intenta cosas, le cueste poder acumulado
-    this.buyRandomEvents = function(num){
+    this.buyRandomEvents = function(num, defcon){
         logme("buyRandomEvents","...");
         var evs = [];
         var vistos = [];
-        var ev_available = this.listEventsAvailable();
+        var ev_available = this.listEventsAvailable(defcon);
 
         for(var t=0;t<num;t++){
             var e = randomElement(ev_available);
@@ -286,9 +280,16 @@ function Faccion(nombre, slug){
         //Procesa turnos pendientes
         this.processPendingEvents();
 
+        var need = this.getEventsNum();
         //Busca siguientes eventos
-        var evs = this.buyRandomEvents(this.getEventsNum());
-        Scene.addEvents(evs);
+        for(var t=this.defcon;t>=0 && need>0;t--){
+            var evs = this.buyRandomEvents(this.getEventsNum(),t);
+            var len = evs.length;
+            if(len){
+                need = need - len;
+                Scene.addEvents(evs);
+            }
+        }
 
         //Recordara eventos para turno actual
         this.setPendingEvents(evs);

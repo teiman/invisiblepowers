@@ -3,6 +3,9 @@ var Scene = (function(){
 
     var events_next = [];
 
+    function getEvents(){
+        return events_next;
+    }
 
     function clear(){
         logme("clear","...");
@@ -64,7 +67,9 @@ var Scene = (function(){
         }
 
         //Orden de los eventos aleatorios
+        //console.log(events_next);
         events_next = Coleccion(events_next).shuffle();
+        //console.log(events_next);
 
         events_next.forEach(function(e){ 
             var html = e.genHTML();
@@ -93,6 +98,7 @@ var Scene = (function(){
         addEvents:addEvents,
         redraw:redraw,
         clear:clear, 
+        getEvents:getEvents
     };
 
 })();
