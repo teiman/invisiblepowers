@@ -34,7 +34,8 @@
         cost: 200,
         text: "Huelga en {{country}} pidiendo mejoras sociales.",   
         reactions: [ 
-            new Reaction(r_apoyar,{text:"Sabotear huelga",cost:"S"}),
+            new Reaction(r_apoyar,{cost:"D"}),
+            new Reaction(r_parar,{text:"Sabotear huelga",cost:"S"}),
         ], 
     }));
 
@@ -45,7 +46,8 @@
         cost: 200,
         text: "Construccion de viviendas sociales en {{country}}.",   
         reactions: [ 
-            new Reaction(r_apoyar,{text:"Comprar por un lobby",cost:"D"}),
+            new Reaction(r_apoyar,{cost:"D"}),
+            new Reaction(r_parar,{text:"Comprar por un lobby",cost:"D"}),
         ], 
     }));
 
@@ -56,7 +58,8 @@
         cost: 200,
         text: "Nueva ley de educación publica en {{country}} favore la educacion de todos los niños.",   
         reactions: [ 
-            new Reaction(r_apoyar,{text:"Bloquear ley con un lobby",cost:"D"}),
+            new Reaction(r_apoyar,{cost:"D"}),
+            new Reaction(r_parar,{text:"Bloquear ley con un lobby",cost:"D"}),
         ], 
     }));
 
@@ -68,7 +71,8 @@
         cost: 200,
         text: "En {{country}} prueban un Salario Minimo Vital.",   
         reactions: [ 
-            new Reaction(r_apoyar,{text:"Sabotear prueba",cost:"S"}),
+            new Reaction(r_apoyar,{cost:"D"}),
+            new Reaction(r_parar,{text:"Sabotear prueba",cost:"S"}),
         ], 
     }));
 
@@ -80,7 +84,8 @@
         cost: 300,
         text: "Gran escandalo en {{country}}, {{company}} violaba los derechos de los trabajadores.",   
         reactions: [ 
-            new Reaction(r_apoyar,{text:"Bloquear difusion de la noticia",cost:"D"}),
+            new Reaction(r_apoyar,{cost:"D"}),
+            new Reaction(r_parar,{text:"Bloquear difusion de la noticia",cost:"D"}),
         ], 
     }));
 
@@ -91,7 +96,8 @@
         cost: 300,
         text: "Se publica un libro 'Las 100 formas en las que {{company}} explota a sus trabajadores'.",   
         reactions: [ 
-            new Reaction(r_apoyar,{text:"Bloquear difusion del libro",cost:"D"}),
+            new Reaction(r_apoyar,{cost:"D"}),
+            new Reaction(r_parar,{text:"Bloquear difusion del libro",cost:"D"}),
         ], 
     }));
 
@@ -102,6 +108,7 @@
         cost: 800+BALANCE_COST,
         text: "{{country}} planea contratar asesores de la HI.",   
         reactions: [ 
+            new Reaction(r_apoyar,{cost:"D"}),
             new Reaction(r_parar,{text:"Sabotear negociaciones",cost:"D"}),
         ], 
     }));
@@ -111,8 +118,9 @@
         defcon: 1,
         delta_power:10,
         cost: 800+BALANCE_COST,
-        text: "Congreo de la HI en {{country}}.",   
+        text: "Congreso de la HI en {{country}}.",   
         reactions: [ 
+            new Reaction(r_apoyar,{cost:"D"}),
             new Reaction(r_parar,{text:"Sabotear congreso",cost:"D"}),
         ], 
     }));
@@ -125,6 +133,7 @@
         cost: 800+BALANCE_COST,
         text: "{{country}} adopta sanidad universal para todos los ciudadano.",   
         reactions: [ 
+            new Reaction(r_apoyar,{cost:"D"}),
             new Reaction(r_parar,{text:"Sabotear visita",cost:"D"}),
         ], 
     }));
@@ -137,6 +146,7 @@
         cost: 800+BALANCE_COST,
         text: "{{country}} elogiado por su sanidad de calidad",   
         reactions: [ 
+            new Reaction(r_apoyar,{cost:"D"}),
             new Reaction(r_parar,{text:"Sabotear visita",cost:"D"}),
         ], 
     }));
@@ -150,6 +160,7 @@
         cost: 400+BALANCE_COST,
         text: "HI negocia en {{country}} para aumentar el nivel de vida de las familias pobres.",   
         reactions: [ 
+            new Reaction(r_apoyar,{cost:"D"}),
             new Reaction(r_parar,{text:"Influir en contra",cost:"T"}),
         ], 
     }));
@@ -161,6 +172,7 @@
         cost: 400+BALANCE_COST,
         text: "USA y Human Institute en discusiones sobre los derechos humanos en {{country}}.",   
         reactions: [ 
+            new Reaction(r_apoyar,{cost:"D"}),
             new Reaction(r_parar,{text:"Influir en la opinion public en contra",cost:"T"}),
         ], 
     }));
@@ -173,6 +185,7 @@
         min_defcon: 3,//asciende
         text: "HI organiza una huelga masiva en {{smallnumber}} para pedir igualdad de derechos.",   
         reactions: [ 
+            new Reaction(r_apoyar,{cost:"D"}),
             new Reaction(r_parar,{text:"Influir en la opinion public en contra",cost:"T"}),
             new Reaction(r_parar,{text:"Sabotear operaciones",cost:"T"}),
         ], 
@@ -185,6 +198,7 @@
         cost: 400+BALANCE_COST,
         text: "HI fuerza a {{country}} a ofrecer un sistema de pensiones para todos los ciudadanos.",   
         reactions: [ 
+            new Reaction(r_apoyar,{cost:"D"}),
             new Reaction(r_parar,{text:"Influir en contra",cost:"T"}),
         ], 
     }));
@@ -199,6 +213,7 @@
         cost: 800+BALANCE_COST,
         text: "HI subenciona en {{country}} un grupo anti-neoliberalismo.",   
         reactions: [ 
+            new Reaction(r_apoyar,{cost:"D"}),
             new Reaction(r_parar,{text:"Sabotear operación",cost:"T"}),
         ], 
     }));
@@ -211,6 +226,7 @@
         cost: 800+BALANCE_COST,
         text: "HI organiza una huelga de mineros en China, con las criticas de USA y la Union Europea.",   
         reactions: [ 
+            new Reaction(r_apoyar,{cost:"D"}),
             new Reaction(r_parar,{text:"Sabotear operación",cost:"T"}),
         ], 
     }));
@@ -225,6 +241,7 @@
         cost: 800+BALANCE_COST,
         text: "{{country}} prueba nuevos sistemas de cooperacion comunitaria.",   
         reactions: [ 
+            new Reaction(r_apoyar,{cost:"D"}),
             new Reaction(r_parar,{text:"Sabotear operación",cost:"T"}),
         ], 
     }));
@@ -239,6 +256,7 @@
         cost: 800+BALANCE_COST,
         text: "{{country}} solicita ayuda al HI para reflotar su economia.",   
         reactions: [ 
+            new Reaction(r_apoyar,{cost:"D"}),
             new Reaction(r_parar,{text:"Sabotear operación",cost:"T"}),
         ], 
     }));
@@ -252,6 +270,7 @@
         cost: 800+BALANCE_COST,
         text: "HI al frente de las Naciones Unidas.",   
         reactions: [ 
+            new Reaction(r_apoyar,{cost:"D"}),
             new Reaction(r_parar,{text:"Sabotear fiesta",cost:"S"}),
         ], 
     }));

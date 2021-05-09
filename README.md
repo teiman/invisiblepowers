@@ -15,6 +15,16 @@ TODO:
 
 game over conditions!
 
+new subsystem "compromats":
+ - adquire secret data from factions
+ - use that secret data to reduce the power of a faction
+
+new subsystem histories: 
+ - investigat factions
+ - receive secrets 
+ - receive whistlebloger you have to protect to receive mayor secrets 
+
+
 new factions:
  - reptilians 
  - vampire masquerade 

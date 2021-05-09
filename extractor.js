@@ -11,6 +11,7 @@ const { exec } = require("child_process");
 const piskelfile = "data/pix2.piskel";
 const outputdir = "output";
 
+//https://nodejs.dev/learn/reading-files-with-nodejs
 fs.readFile(piskelfile, 'utf8' , (err, data) => {
     if (err) {
         console.error(err)

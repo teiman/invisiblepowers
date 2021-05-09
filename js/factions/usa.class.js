@@ -45,6 +45,7 @@
         cost: 200+BALANCE_COST,
         text: "USA pasa al senado una nueva de Copyright mas restrictiva.",   
         reactions: [ 
+            new Reaction(r_apoyar,{cost:"D"}),
             new Reaction(r_parar,{text:"Apoyar economicamente al lobby en contra",cost:"D"}),
         ], 
     }));
@@ -56,6 +57,7 @@
         cost: 200+BALANCE_COST,
         text: "USA vende armas a {{country}}.",   
         reactions: [ 
+            new Reaction(r_apoyar,{cost:"D"}),
             new Reaction(r_parar,{text:"Destruir transporte de armas",cost:"S"}),
         ], 
     }));
@@ -67,6 +69,7 @@
         cost: 400+BALANCE_COST,
         text: "USA en guerra economica con {{country}}, propone sanciones.",   
         reactions: [ 
+            new Reaction(r_apoyar,{cost:"D"}),
             new Reaction(r_parar,{text:"Apoyar economicamente al lobby en contra",cost:"D"}),
             new Reaction(r_parar,{text:"Campaña de propaganda en contra de la acción",cost:"D"}),
         ], 
@@ -80,6 +83,7 @@
         min_defcon:1,//asciende
         text: "USA crea negocia una base militar en {{country}}.",   
         reactions: [ 
+            new Reaction(r_apoyar,{cost:"D"}),
             new Reaction(r_parar,{text:"Sabotear negociaciones",cost:"D"}),
         ], 
     }));
@@ -92,6 +96,7 @@
         min_defcon:1,//asciende
         text: "Disturvios raciales en California tras muerte de un negro a manos de la policia.",   
         reactions: [ 
+            new Reaction(r_apoyar,{cost:"D"}),
             new Reaction(r_parar,{text:"Instigar revuelta",cost:"D"}),
         ], 
     }));
@@ -105,6 +110,7 @@
         cost: 800+BALANCE_COST,
         text: "USA negocia la extradicion de terroristas desde {{country}}.",   
         reactions: [ 
+            new Reaction(r_apoyar,{cost:"D"}),
             new Reaction(r_parar,{text:"Sabotear negociaciones",cost:"D"}),
         ], 
     }));
@@ -116,6 +122,7 @@
         cost: 800+BALANCE_COST,
         text: "El presidente de USA visita {{country}}.",   
         reactions: [ 
+            new Reaction(r_apoyar,{cost:"D"}),
             new Reaction(r_parar,{text:"Sabotear visita",cost:"D"}),
         ], 
     }));
@@ -128,6 +135,7 @@
         cost: 800+BALANCE_COST,
         text: "{{country}} privatiza su sistema de sanidad, con ayuda de empresas americanas.",   
         reactions: [ 
+            new Reaction(r_apoyar,{cost:"D"}),
             new Reaction(r_parar,{text:"Sabotear visita",cost:"D"}),
         ], 
     }));
@@ -154,6 +162,7 @@
         cost: 400+BALANCE_COST,
         text: "USA aconseja a {{country}} a mantener el salario minimo bajo.",   
         reactions: [ 
+            new Reaction(r_apoyar,{cost:"D"}),
             new Reaction(r_parar,{text:"Influir en contra",cost:"T"}),
         ], 
     }));
@@ -165,6 +174,7 @@
         cost: 400+BALANCE_COST,
         text: "USA mantiene una guerra con {{country}} por los aranceles.",   
         reactions: [ 
+            new Reaction(r_apoyar,{cost:"D"}),
             new Reaction(r_parar,{text:"Influir en la opinion public en contra",cost:"T"}),
         ], 
     }));
@@ -177,6 +187,7 @@
         min_defcon: 3,//asciende
         text: "La sexta flota avanza hacia el mar del indico en otra accion belica.",   
         reactions: [ 
+            new Reaction(r_apoyar,{cost:"D"}),
             new Reaction(r_parar,{text:"Influir en la opinion public en contra",cost:"T"}),
             new Reaction(r_parar,{text:"Sabotear operaciones",cost:"T"}),
         ], 
@@ -189,6 +200,7 @@
         cost: 400+BALANCE_COST,
         text: "USA pide a la union europea a apoyar sus sanciones contra {{country}}.",   
         reactions: [ 
+            new Reaction(r_apoyar,{cost:"D"}),
             new Reaction(r_parar,{text:"Influir en contra",cost:"T"}),
         ], 
     }));
@@ -203,6 +215,7 @@
         cost: 800+BALANCE_COST,
         text: "USA realiza una operacion militar en {{country}}, asesinando a lideres de este pais.",   
         reactions: [ 
+            new Reaction(r_apoyar,{cost:"D"}),
             new Reaction(r_parar,{text:"Sabotear operación",cost:"T"}),
         ], 
     }));
@@ -215,6 +228,7 @@
         cost: 800+BALANCE_COST,
         text: "USA disuelve una huelga de mineros utilizando un producto quimico toxico rociado en la zona de la huelga.",   
         reactions: [ 
+            new Reaction(r_apoyar,{cost:"D"}),
             new Reaction(r_parar,{text:"Sabotear operación",cost:"T"}),
         ], 
     }));
@@ -229,6 +243,7 @@
         cost: 800+BALANCE_COST,
         text: "{{country}} adopta el dolar como su moneda oficial.",   
         reactions: [ 
+            new Reaction(r_apoyar,{cost:"D"}),
             new Reaction(r_parar,{text:"Sabotear operación",cost:"T"}),
         ], 
     }));
@@ -243,6 +258,7 @@
         cost: 800+BALANCE_COST,
         text: "{{country}} en la bancarrota, pide ayudas a USA.",   
         reactions: [ 
+            new Reaction(r_apoyar,{cost:"D"}),
             new Reaction(r_parar,{text:"Sabotear operación",cost:"T"}),
         ], 
     }));
@@ -256,6 +272,7 @@
         cost: 800+BALANCE_COST,
         text: "Se celebra en New York el quinto año de la PAX Americana, con los lideres de las principales corporaciones mundiales.",   
         reactions: [ 
+            new Reaction(r_apoyar,{cost:"D"}),
             new Reaction(r_parar,{text:"Sabotear fiesta",cost:"S"}),
         ], 
     }));

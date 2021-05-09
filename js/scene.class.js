@@ -39,21 +39,34 @@ var Scene = (function(){
 
 
         var forma = function(datos){
-            var podercocos = datos.podercocos;
+            var defconcocos = datos.defcon;
             var str = "";
-            for(var t=0;t<podercocos;t++){
+            for(var t=0;t<defconcocos;t++){
                 str += "⬤";
             }
-            datos.podercocos = str;
+            datos.defconcocos = str;
+
+            var power = datos.power;
+
+            var podercocos = ( (Math.log10(power)*5+ Math.log2(power)*1)/6 );
+            if(podercocos>6)
+                podercocos = 6;
+
+            var str2 = "";
+            for(var t=0;t<podercocos;t++){
+                str2 += "⬤";
+            }
+            datos.podercocos = str2;
+
             return datos;
         }
 
         var informe = {
             lista: [
-                forma({enfadococos:Pope.f.acumhate,nombre: Pope.name, podercocos: Pope.f.defcon}),
-                forma({enfadococos:CPU.f.acumhate,nombre: CPU.name, podercocos: CPU.f.defcon}),
-                forma({enfadococos:USA.f.acumhate,nombre: USA.name, podercocos: USA.f.defcon}),
-                forma({enfadococos:PC.f.acumhate,nombre: PC.name, podercocos: PC.f.defcon}),
+                forma({power:Pope.f.power,nombre: Pope.name, defcon: Pope.f.defcon}),
+                forma({power:CPU.f.power,nombre: CPU.name, defcon: CPU.f.defcon}),
+                forma({power:USA.f.power,nombre: USA.name, defcon: USA.f.defcon}),
+                forma({power:PC.f.power,nombre: PC.name, defcon: PC.f.defcon}),
             ]
         };
         var template_informe = $("#ui-informe").html();

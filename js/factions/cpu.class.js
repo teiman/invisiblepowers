@@ -6,7 +6,7 @@
  * 
  */
  var CPU = (function(){
-    var f = new Faccion("Conglomerado AI","CPU");
+    var f = new Faccion("Hivemind AI","CPU");
 
     FF.registrarAmigo(f.slug,"CPU");
     FF.registrarEnemigo(f.slug,"USA");
@@ -21,6 +21,8 @@
         text: "Sabotear",
         direction: "stop"
     })
+
+    
 
     /* ---------------- eventos --------------- */   
 
@@ -58,6 +60,9 @@
         delta_power:5,
         cost: 100,
         text: "{{instituto}} publica una tecnica de IA mejorada.",   
+        reactions: [
+            new Reaction(r_apoyar,{}),
+        ]
     }));
 
     f.addEvent(new Event({
@@ -67,6 +72,7 @@
         cost: 200,
         text: "Un artista en {{country}} realiza una exposición de arte digital.",  
         reactions: [ 
+            new Reaction(r_apoyar,{}),
             new Reaction(r_apoyar,{text:"Sabotear exposición",cost:"S"}),
         ] 
     }));
@@ -80,6 +86,7 @@
         coste: 200,
         text: "Nuevos avances en Inteligencia Artificial en el {{instituto}}.",   
         reactions: [ 
+            new Reaction(r_apoyar,{}),
             new Reaction(r_parar,{text:"Atacar las instalaciones, destruir computadoras",cost:"S"}),
             new Reaction(r_parar,{text:"Poner la opinion publica en contra",cost:"D"}), 
         ], 
@@ -92,6 +99,7 @@
         coste: 200,
         text: "{{instituto}} muestra un video en el que se ven impresionantes avances en robotica.",   
         reactions: [ 
+            new Reaction(r_apoyar,{}),
             new Reaction(r_parar,{text:"Hackear el instituto y destruir datos de investigacion",cost:"T"}), 
         ], 
     }));
@@ -104,6 +112,7 @@
         min_defcon: 2,
         text: "{{instituto}} investiga una tecnologia de interfaz hombre-maquina.",   
         reactions: [ 
+            new Reaction(r_apoyar,{cost:"D"}),
             new Reaction(r_apoyar,{text:"Invertir en la tecnologia",cost:"D"}),
         ], 
     }));
@@ -118,6 +127,7 @@
         min_defcon: 3,
         text: "{{company}} anuncia nueva tecnologia de gestion desarrollada por {{instituto}}.",   
         reactions: [ 
+            new Reaction(r_apoyar,{cost:"D"}),
             new Reaction(r_parar,{text:"Atacar las instalaciones, destruir computadoras",cost:"S"}),
             new Reaction(r_parar,{text:"Poner la opinion publica en contra",cost:"D"}), 
         ], 
@@ -132,6 +142,7 @@
         coste: 200,
         text: "{{company}} revoluciona la domotica con una grid ",   
         reactions: [ 
+            new Reaction(r_apoyar,{cost:"D"}),
             new Reaction(r_parar,{text:"Atacar las instalaciones, destruir computadoras",cost:"S"}),
             new Reaction(r_parar,{text:"Poner la opinion publica en contra",cost:"D"}), 
         ], 
@@ -145,6 +156,7 @@
         coste: 200,
         text: "Melissa, un sistema de IA, se convierte en el CEO de {{company}}",   
         reactions: [ 
+            new Reaction(r_apoyar,{cost:"D"}),
             new Reaction(r_parar,{text:"Atacar las instalaciones, destruir computadoras",cost:"S"}),
             new Reaction(r_parar,{text:"Poner la opinion publica en contra",cost:"D"}), 
         ], 
@@ -159,6 +171,7 @@
         coste: 200,
         text: "Grupo de IAs pasan el test de turing en {{institute}}",   
         reactions: [ 
+            new Reaction(r_apoyar,{cost:"D"}),
             new Reaction(r_apoyar,{text:"Apoyar publicamente",cost:"D"}),
             new Reaction(r_parar,{text:"Destruir instalaciones",cost:"S"}),
         ], 
