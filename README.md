@@ -10,8 +10,11 @@ Current factions:
 Current gameplay elements:
  - Block/help factions events  
 
-
 TODO:
+
+gameplay loop:
+ - the game need a proper gameplay loop, refined so it works and is fun. current version feels like a simulator at best :P
+
 
 game over conditions!
 
