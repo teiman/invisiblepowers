@@ -210,6 +210,7 @@
         delta_power:10,
         coste: 200,
         min_defcon: 6,
+        volatil_destruccion_mundo: 20,//posibilidad destruccion del mundo
         text: "En una gran ceremonia, el gobierno de {{country}} ha sido cedido a un nuevo sistema IA.",   
         reactions: [ 
             new Reaction(r_apoyar,{text:"Apoyar publicamente",cost:"D"}),

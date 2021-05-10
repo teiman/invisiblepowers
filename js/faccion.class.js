@@ -77,8 +77,13 @@ function Faccion(nombre, slug){
             }
         }
 
+        if(isNaN(delta.min_defcon)){
+            console.log(`[Faccion][applyDelta] Error, min defcon is NaN!`);
+        }
+
         if(delta.min_defcon && !isNaN(delta.min_defcon)){
             if(delta.min_defcon > this.defcon){
+                console.log(`[Faccion][applyDelta] sube defcon!`);
                 this.defcon = this.defcon + 1;
             }
         }
@@ -181,6 +186,8 @@ function Faccion(nombre, slug){
      * @returns 
      */
     this.processPendingEvents = function(){
+        console.log(`[Faction][processPendingEvents] ... `);
+
         var delta_power_final = 0;
         var delta_defcon = 0;
         var min_defcon = 0;
@@ -193,18 +200,18 @@ function Faccion(nombre, slug){
             if(self.acumhate<0)
                 self.acumhate = 0;    
 
-            console.log(`[Faction][playerPerjudica].deltaHate ${self.slug} (${m}) acumhate: ${self.acumhate} `);
+            console.log(`[Faction][processPendingEvents].deltaHate ${self.slug} (${m}) acumhate: ${self.acumhate} `);
         };
         var deltaLove = function(m){
             self.acumlove = self.acumlove + m;    
             if(self.acumlove<0)
                 self.acumlove = 0;    
 
-            console.log(`[Faction][playerPerjudica].deltaLove ${self.slug} (${m}) acumlove: ${self.acumlove} `);
+            console.log(`[Faction][processPendingEvents].deltaLove ${self.slug} (${m}) acumlove: ${self.acumlove} `);
         };
 
-        console.log(`[Faccion][processPendingEvents] Se van a procesar ${eventos_reaccion.length} eventos`);
-        if(this.cola_eventos_esperando.length){           
+        if(this.cola_eventos_esperando.length){   
+            console.log(`[Faccion][processPendingEvents] Se van a procesar ${this.cola_eventos_esperando.length} eventos`);        
 
             this.cola_eventos_esperando.forEach(function(e){            
                 if(eventos_reaccion[e.slug]){
@@ -228,8 +235,9 @@ function Faccion(nombre, slug){
                     }
                 }
 
+                console.log(e);
+
                 delta_power_final += e.delta_power;
-                if(e.delta_defcon) delta_defcon += e.delta_defcon;
 
                 if(e.min_defcon){
                     if(e.min_defcon>min_defcon){
@@ -237,19 +245,14 @@ function Faccion(nombre, slug){
                     }
                 }
             });
-        }else{
-            console.log("[Faccion][processPendingEvents] NO hay eventos");
         }
-
-        //Delta_defcon solo puede cambiar en 1, no pude pasar de 1 a 6 de golpe.
-        if(delta_defcon>1) delta_defcon = 1;
-        if(delta_defcon<-1) delta_defcon = -1;
 
         if(delta_defcon){
             console.log("[Faccion][processPendingEvents] AVISO!: cambia el DEFCON de la faccion:" + this.name);
         }
         
         var delta = {
+            faction_slug: this.slug,
             power: delta_power_final,
             delta_defcon: delta_defcon,
             min_defcon: min_defcon,
@@ -279,8 +282,12 @@ function Faccion(nombre, slug){
     this.next = function(){
         //Procesa turnos pendientes
         this.processPendingEvents();
+        this.eventos_reaccion = [];
+        this.cola_eventos_esperando = [];
 
         var need = this.getEventsNum();
+
+        var cola = this.cola_eventos_esperando;
         //Busca siguientes eventos
         for(var t=this.defcon;t>=0 && need>0;t--){
             var evs = this.buyRandomEvents(this.getEventsNum(),t);
@@ -289,10 +296,11 @@ function Faccion(nombre, slug){
                 need = need - len;
                 Scene.addEvents(evs);
             }
-        }
 
-        //Recordara eventos para turno actual
-        this.setPendingEvents(evs);
+            evs.forEach(function(e){ 
+                cola.push(e)
+            });
+        }
     };
 
     this.playerPerjudica = function(){
@@ -314,5 +322,7 @@ function Faccion(nombre, slug){
         if(this.acumhate<0)
             this.acumhate = 0;  
     };
+
+
 
 }

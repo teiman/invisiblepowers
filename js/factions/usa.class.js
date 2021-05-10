@@ -27,7 +27,7 @@
 
     /*--- 0 ---*/
     f.addEvent(new Event({
-        slug: "neolib1",
+        slug: "neolib1negocia",
         defcon: 0,
         delta_power:5,
         cost: 200+BALANCE_COST,
@@ -39,7 +39,7 @@
     }));
 
     f.addEvent(new Event({
-        slug: "neolib2",
+        slug: "neolib2senado",
         defcon: 0,
         delta_power:5,
         cost: 200+BALANCE_COST,
@@ -51,7 +51,7 @@
     }));
 
     f.addEvent(new Event({
-        slug: "neolib2",
+        slug: "neolib2armas",
         defcon: 0,
         delta_power:5,
         cost: 200+BALANCE_COST,
@@ -63,7 +63,7 @@
     }));
 
     f.addEvent(new Event({
-        slug: "neolib2",
+        slug: "neolib2guerra",
         defcon: 0,
         delta_power:5,
         cost: 400+BALANCE_COST,
@@ -76,7 +76,7 @@
     }));
 
     f.addEvent(new Event({
-        slug: "base1",
+        slug: "base1base_uu",
         defcon: 0,
         delta_power:15,
         cost: 800+BALANCE_COST,
@@ -89,7 +89,7 @@
     }));
 
     f.addEvent(new Event({
-        slug: "base1",
+        slug: "base1raza_uu",
         defcon: 0,
         delta_power:5,
         cost: 800+BALANCE_COST,
@@ -104,7 +104,7 @@
 
     /*--- 1 ---*/
     f.addEvent(new Event({
-        slug: "negocia1",
+        slug: "negocia1terrr",
         defcon: 1,
         delta_power:10,
         cost: 800+BALANCE_COST,
@@ -116,7 +116,7 @@
     }));
 
     f.addEvent(new Event({
-        slug: "visita1",
+        slug: "visita1pusa",
         defcon: 1,
         delta_power:10,
         cost: 800+BALANCE_COST,
@@ -128,7 +128,7 @@
     }));
 
     f.addEvent(new Event({
-        slug: "private1",
+        slug: "private1_uu",
         defcon: 1,
         min_defcon: 2,//asciende!
         delta_power:20,
@@ -141,7 +141,7 @@
     }));
 
     f.addEvent(new Event({
-        slug: "private2",
+        slug: "private2_uu",
         defcon: 1,
         min_defcon: 2,//asciende!
         delta_power:10,
@@ -168,7 +168,7 @@
     }));
 
     f.addEvent(new Event({
-        slug: "amigo2",
+        slug: "amigo2guerra",
         defcon: 2,
         delta_power:10,
         cost: 400+BALANCE_COST,
@@ -180,7 +180,7 @@
     }));
 
     f.addEvent(new Event({
-        slug: "amigo2a",
+        slug: "sextaflota_uu",
         defcon: 2,
         delta_power:10,
         cost: 400+BALANCE_COST,
@@ -194,7 +194,7 @@
     }));
 
     f.addEvent(new Event({
-        slug: "amigo3",
+        slug: "amigo3union",
         defcon: 2,
         delta_power:10,
         cost: 400+BALANCE_COST,
@@ -208,7 +208,7 @@
     /*--- 3 ---*/
 
     f.addEvent(new Event({
-        slug: "amigo4",
+        slug: "amigo4militar_uu",
         defcon: 3,
         delta_power: 25,
         min_defcon: 4,//asciende
@@ -221,7 +221,7 @@
     }));
 
     f.addEvent(new Event({
-        slug: "amigo4",
+        slug: "amigo4huelga_uu",
         defcon: 3,
         delta_power:25,
         min_defcon: 4,//asciende
@@ -236,7 +236,7 @@
     /*--- 4 ---*/
 
     f.addEvent(new Event({
-        slug: "amigo5",
+        slug: "amigo5dolar_uu",
         defcon: 4,
         delta_power:25,
         min_defcon: 5,//asciende
@@ -251,7 +251,7 @@
     /*--- 5 ---*/
 
     f.addEvent(new Event({
-        slug: "amigo5",
+        slug: "amigo5bancarrota_uu",
         defcon: 5,
         delta_power:25,
         min_defcon: 6,//asciende
@@ -266,10 +266,11 @@
     /*--- 6 ---*/
 
     f.addEvent(new Event({
-        slug: "amigo5",
+        slug: "amigo5ny",
         defcon: 6,
         delta_power:25,
         cost: 800+BALANCE_COST,
+        volatil_destruccion_mundo: 90,//posibilidad destruccion del mundo
         text: "Se celebra en New York el quinto año de la PAX Americana, con los lideres de las principales corporaciones mundiales.",   
         reactions: [ 
             new Reaction(r_apoyar,{cost:"D"}),

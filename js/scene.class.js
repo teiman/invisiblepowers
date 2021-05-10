@@ -79,11 +79,16 @@ var Scene = (function(){
             return;
         }
 
+        console.log(`[Scene][1],events: ${events_next.length}`);
+
         //Orden de los eventos aleatorios
         //console.log(events_next);
         events_next = Coleccion(events_next).shuffle();
         //console.log(events_next);
 
+        console.log(`[Scene][2],events: ${events_next.length}`);
+
+        var t = 0;
         events_next.forEach(function(e){ 
             var html = e.genHTML();
             var div = document.createElement('div');
@@ -91,8 +96,10 @@ var Scene = (function(){
             $(div).addClass("faction-"+e.faction_slug);
             $(div).html(html);
             if(!Game.TESTBALANCE) $("#root-box").append(div);
+            t++;
         });
 
+        console.log(`[Scene][3],events: ${events_next.length}, t:${t}`);
 
 
         //Part of the balance test mode 

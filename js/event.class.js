@@ -45,6 +45,21 @@ function Event(ev){
     this.reactions = ev.reactions;
     this.volatil_destruccion_mundo = ev.volatil_destruccion_mundo;
 
+    Object.defineProperty(this, 'alertDefcon', { 
+        get: function() { 
+            var f = Game.findFaction(this.faction_slug);
+            if(!f)
+                console.log(`[Event][alertDefcon] Error: no se encuentra faccion ${this.faction_slug}`);
+
+            if(f.f.defcon<this.min_defcon){
+                console.log(`[Event][alertDefcon] sube defcon!`);
+                return ` - <b class='crisis'>[escalada de crisis]</b>`;
+            }
+
+            return "";
+        } 
+    });
+
     this.asArray = function(){
         return {
             faction_name: this.faction_name,

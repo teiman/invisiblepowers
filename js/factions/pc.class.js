@@ -28,7 +28,7 @@
 
     /*--- 0 ---*/
     f.addEvent(new Event({
-        slug: "com1",
+        slug: "c_com1",
         defcon: 0,
         delta_power:15,
         cost: 200,
@@ -40,7 +40,7 @@
     }));
 
     f.addEvent(new Event({
-        slug: "com2",
+        slug: "c_com2",
         defcon: 0,
         delta_power:5,
         cost: 200,
@@ -52,7 +52,7 @@
     }));
 
     f.addEvent(new Event({
-        slug: "com3",
+        slug: "c_com3",
         defcon: 0,
         delta_power:5,
         cost: 200,
@@ -64,7 +64,7 @@
     }));
 
     f.addEvent(new Event({
-        slug: "smv1",
+        slug: "c_smv1",
         defcon: 0,
         delta_power:15,
         min_defcon: 1,
@@ -78,7 +78,7 @@
 
     /*--- 1 ---*/
     f.addEvent(new Event({
-        slug: "com1",
+        slug: "c_com1",
         defcon: 1,
         delta_power:15,
         cost: 300,
@@ -90,7 +90,7 @@
     }));
 
     f.addEvent(new Event({
-        slug: "libro1",
+        slug: "c_libro1",
         defcon: 1,
         delta_power:15,
         cost: 300,
@@ -102,7 +102,7 @@
     }));
 
     f.addEvent(new Event({
-        slug: "negocia1",
+        slug: "c_negocia1",
         defcon: 1,
         delta_power:10,
         cost: 800+BALANCE_COST,
@@ -114,7 +114,7 @@
     }));
 
     f.addEvent(new Event({
-        slug: "visita1",
+        slug: "c_visita1",
         defcon: 1,
         delta_power:10,
         cost: 800+BALANCE_COST,
@@ -126,7 +126,7 @@
     }));
 
     f.addEvent(new Event({
-        slug: "private1",
+        slug: "c_private1_uu",
         defcon: 1,
         min_defcon: 2,//asciende!
         delta_power:20,
@@ -139,7 +139,7 @@
     }));
 
     f.addEvent(new Event({
-        slug: "private2",
+        slug: "c_private2_uu",
         defcon: 1,
         min_defcon: 2,//asciende!
         delta_power:10,
@@ -154,7 +154,7 @@
     /*--- 2 ---*/
 
     f.addEvent(new Event({
-        slug: "amigo1",
+        slug: "c_amigo1negocia",
         defcon: 2,
         delta_power:10,
         cost: 400+BALANCE_COST,
@@ -166,7 +166,7 @@
     }));
 
     f.addEvent(new Event({
-        slug: "amigo2",
+        slug: "c_amigo2hr",
         defcon: 2,
         delta_power:10,
         cost: 400+BALANCE_COST,
@@ -178,7 +178,7 @@
     }));
 
     f.addEvent(new Event({
-        slug: "amigo2a",
+        slug: "c_amigo2abhuelga_uu",
         defcon: 2,
         delta_power:10,
         cost: 400+BALANCE_COST,
@@ -192,7 +192,7 @@
     }));
 
     f.addEvent(new Event({
-        slug: "amigo3",
+        slug: "c_amigo3fuerza",
         defcon: 2,
         delta_power:10,
         cost: 400+BALANCE_COST,
@@ -206,7 +206,7 @@
     /*--- 3 ---*/
 
     f.addEvent(new Event({
-        slug: "amigo4",
+        slug: "c_amigo4sub_uu",
         defcon: 3,
         delta_power: 25,
         min_defcon: 4,//asciende
@@ -219,7 +219,7 @@
     }));
 
     f.addEvent(new Event({
-        slug: "amigo4",
+        slug: "c_amigo4huelga_uu",
         defcon: 3,
         delta_power:25,
         min_defcon: 4,//asciende
@@ -234,7 +234,7 @@
     /*--- 4 ---*/
 
     f.addEvent(new Event({
-        slug: "amigo5",
+        slug: "c_amigo5cooperacion_uu",
         defcon: 4,
         delta_power:25,
         min_defcon: 5,//asciende
@@ -249,7 +249,7 @@
     /*--- 5 ---*/
 
     f.addEvent(new Event({
-        slug: "amigo5",
+        slug: "c_amigo5ayuda_uu",
         defcon: 5,
         delta_power:25,
         min_defcon: 6,//asciende
@@ -264,11 +264,12 @@
     /*--- 6 ---*/
 
     f.addEvent(new Event({
-        slug: "amigo5",
+        slug: "c_amigo5nu",
         defcon: 6,
         delta_power:25,
         cost: 800+BALANCE_COST,
         text: "HI al frente de las Naciones Unidas.",   
+        volatil_destruccion_mundo: 90,//posibilidad destruccion del mundo
         reactions: [ 
             new Reaction(r_apoyar,{cost:"D"}),
             new Reaction(r_parar,{text:"Sabotear fiesta",cost:"S"}),

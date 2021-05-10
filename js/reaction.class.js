@@ -3,6 +3,11 @@ function Reaction(r,modifier){
     if(modifier===null || modifier===undefined)
         modifier = {};
 
+    if(!r.cost){
+        console.log(`[Reaction]Error: bad reaction for event`);
+        r.cost = "D";
+    }
+
     this.text = r.text;
     this.cost = r.cost;
     this.event_slug = r.event_slug;

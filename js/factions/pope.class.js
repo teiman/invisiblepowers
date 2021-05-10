@@ -77,7 +77,7 @@ var Pope = (function(){
     }));
 
     f.addEvent(new Event({
-        slug: "religionobligatoria",
+        slug: "religionobligatoria_uu",
         defcon: 0,
         min_defcon: 1,//Asciende el defcon!
         delta_power: 40,
@@ -90,7 +90,7 @@ var Pope = (function(){
     }));
 
     f.addEvent(new Event({
-        slug: "tv1",
+        slug: "tv1_uu",
         defcon: 0,
         min_defcon: 1,//Asciende el defcon!
         delta_power: 50,
@@ -142,7 +142,7 @@ var Pope = (function(){
     }));
 
     f.addEvent(new Event({
-        slug: "comiteetico",
+        slug: "comiteetico_uu",
         defcon: 1,
         min_defcon: 2,//asciende 
         delta_power:20,
@@ -157,7 +157,7 @@ var Pope = (function(){
     /*--- 2 ---*/
 
     f.addEvent(new Event({
-        slug: "presoscuras",
+        slug: "presoscuras_uu",
         defcon: 2,
         delta_power:50,
         min_defcon: 3, //asciende
@@ -172,7 +172,7 @@ var Pope = (function(){
     /*--- 3 ---*/
 
     f.addEvent(new Event({
-        slug: "takeover1",
+        slug: "takeover1_uu",
         defcon: 3,
         delta_power:150,
         min_defcon:4,//asciende
@@ -188,7 +188,7 @@ var Pope = (function(){
     /*--- 4 ---*/
 
     f.addEvent(new Event({
-        slug: "takeover1",
+        slug: "takeover1_uu",
         defcon: 4,
         delta_power:150,
         min_defcon:5,//asciende
@@ -204,7 +204,7 @@ var Pope = (function(){
     /*--- 5 ---*/
 
     f.addEvent(new Event({
-        slug: "takeover2",
+        slug: "takeover2_uu",
         defcon: 5,
         delta_power:150,
         min_defcon:6,//asciende

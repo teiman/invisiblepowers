@@ -21,12 +21,14 @@ var DD9 = (function(){
     f.addEvent(new Event({
         slug: "congreso1",
         coste: 240, 
+        delta_power:10,
         text: "El DD9 organiza un congreso de seguridad.",   
     }));
 
     f.addEvent(new Event({
         slug: "congreso2",
         coste: 210, 
+        delta_power:10,
         text: "El DD9 realiza un entrenamiento en el mar del norte.",   
     }));
 

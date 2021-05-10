@@ -152,8 +152,6 @@ var Game = (function(){
             if(this_doom && !doom){
                 doom = this_doom;
                 console.log(`[Game][gameOverChecks] New doom!:`+doom);
-            }else{
-                console.log(`[Game][gameOverChecks] ---no-doom---: `+ e.slug + "-"+e.faction_slug);
             }
         });
 
@@ -179,9 +177,8 @@ var Game = (function(){
      * Corren los eventos, se redibuja la pantalla.
      */
     function next(){
+        logme("next","...")
         primerTurnoLimpia(); //En el turno 1 habilitamos elementos de UI
-
-        logme("next","...");
 
         var DELAY_RENDER = 200;
 
@@ -198,6 +195,8 @@ var Game = (function(){
         factions.forEach(function(f){
             f.next();
         });
+
+        console.log(`[Game],events: ${Scene.getEvents().length}`);
 
         var gameOver_type = gameOverChecks();
 
@@ -330,6 +329,7 @@ var Game = (function(){
         getTeam:getTeam,
         perjudicaFaccion: perjudicaFaccion,
         favoreceFaccion: favoreceFaccion,
+        findFaction:findFaction,
         factions:factions,
         TESTBALANCE:TESTBALANCE,
     };
