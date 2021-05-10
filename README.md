@@ -15,7 +15,7 @@ TODO:
 
 gameplay loop:
  - the game need a proper gameplay loop, refined so it works and is fun. current version feels like a simulator at best :P
- - ...this may need to redo or delete entire subsystems! whatever it takes so the player has actions, decisions and fun
+ - ...this may need to redo or delete entire subsystems! whatever it takes so the player feel compelled to do actions, decisions and fun
 
 Friendly actions from factions
  - El Conglomerado AI tranfiere personal al DD9 para apoyar su trabajo
