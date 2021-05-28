@@ -16,3 +16,6 @@ Future for this proyect:
  - I am still trying to turn this into something fun, no success so far
 
 On the current state the gameplay loop is not a joy,  so I need to redo this part that is basically the heart of the game. If everything fails, I may spawn a new game where only the gameplay loop exist.   
+
+Notes: 
+ - Given that using "events" has the basic gameplay loop is very hard to do well,  I will change to "proyects".  proyects will be started by any faction (including ours) and can be interacted to stop, savotage, etc..  if completed that faction will gain power or advanced the "doom clock".  doomclock is a better way to describe the intention of defcon.
