@@ -1,0 +1,36 @@
+
+
+Resources in inventory
+Some resource stack ( 20 soldiers )
+
+Diplomacy battles
+
+Tabs:
+Diplomacy
+Control Center ( check status )
+Laboratory 
+
+Action on factions:
+ - infiltrate
+ 
+Bet on actions.  Actions have a basic cost,  actions have modifiers positive (green) that you can consume to make sure they work.
+Failed actions have consequences.
+
+Factions offer gifts. 
+Gifts have consequences. 
+
+---------------------
+
+Simple run:
+- Player infiltrate faction A (success, level 1)
+- Player view level 1 acitivty on faction
+- Player savotage levle 1 activity, success
+- Player investigate level 1 activity, obtain intel 
+- Player savotage level 2 activity, failure, lose agent, obtain intel 
+
+- Player open diplomacy with faction B (success, level 1)
+- Faction B buys Intel, sells Tech 
+- Faction B is now "Friend"
+
+- Player upgrade base mainframe using Tech
+
