@@ -16,9 +16,17 @@ Action on factions:
 Bet on actions.  Actions have a basic cost,  actions have modifiers positive (green) that you can consume to make sure they work.
 Failed actions have consequences.
 
-Factions offer gifts. 
+Factions offer gifts/temptations
 Gifts have consequences. 
 
+doomclock on factions
+
+failure => may caue "wounded agent",  wounded agents can't go on operations, still take a space on max agents.
+failure => may cause relations change. ( friend <=> neutral <=> enemy ) 
+success => produce resources
+
+resources => may be required for activities
+resources => may be required to upgrade the org.
 ---------------------
 
 Simple run:
@@ -32,5 +40,6 @@ Simple run:
 - Faction B buys Intel, sells Tech 
 - Faction B is now "Friend"
 
-- Player upgrade base mainframe using Tech
+- Player upgrade base mainframe using Tech, increase management level ( max number of agents increase )
+- Player press [next turn], +1 agent hired 
 
