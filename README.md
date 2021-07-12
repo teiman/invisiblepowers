@@ -5,7 +5,7 @@ Current gameplay:
  - Tryiing to stop any of the factions from getting to DEFCON6 and destroyoing the civilization
 
 My objetives:
- - To learn more aboug game developing 
+ - To learn more about game developing 
 
 What I have learned:
  - Doing pixel art is fun and rewarding
